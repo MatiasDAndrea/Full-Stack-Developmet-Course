@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "BIZ UDPGothic", sans-serif;
+}
+
+.img-logo {
+  width: 7em;
+}
+
+.nav-link {
+  margin: 0;
+}
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  background: rgba(255, 0, 0, 0.19);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.1px);
+  -webkit-backdrop-filter: blur(5.1px);
+  padding: 1em;
+}
+
+.log-in {
+  margin-left: auto;
+  align-self: center;
+}
+
+main {
+  height: 460px;
+  width: 100%;
+}
+
+hgroup h1  {
+    font-size: 4em;
+}
