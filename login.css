@@ -23,7 +23,7 @@
 }
 .recuperacion{
     font-family: 'Unispace', Courier, monospace;
-
+    padding-bottom: 15px;
     font-style: italic;
     text-align: center;
 
@@ -35,24 +35,27 @@
 }
    
 .form-check{
+    display: block;
     padding-top: 20px;
     padding-bottom: 20px;
-   align: center;
+   
 
 }
 .welcome{
     font-family: 'Unispace', Courier, monospace;
     font-size: 11px ;
-        display: block;
-        margin-right: ;
-        margin-top: 100px;
-        margin-left: 630px;
-        float: left;
-        
-}
+    display: block;
+    margin-top: 100px;
+    margin-left: 690px;
+    
+    }
 body{
     background-image: url(images/fondo1.png)
 }
 .links{
     color: black;
+}
+.h4{
+    padding-top: 15px;
+    margin-left:110px;
 }
