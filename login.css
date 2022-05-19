@@ -1,0 +1,61 @@
+
+.login-box{
+    font-family: 'Unispace', Courier, monospace;
+
+    margin-top: 50px;
+    margin-left: 600px;
+    margin-right: 600px ;
+    display: block;
+    
+    width: 600px;
+    float: right;
+}
+.card-title{
+    text-align: center;
+    padding-bottom: 40px;
+    font-family: 'Unispace', Courier, monospace;
+
+}
+.col-auto{
+    font-family: 'Unispace', Courier, monospace;
+
+   text-align: center;
+}
+.recuperacion{
+    font-family: 'Unispace', Courier, monospace;
+    padding-bottom: 15px;
+    font-style: italic;
+    text-align: center;
+
+}   
+.logo{
+    display: block;
+    margin-left: 50px;
+
+}
+   
+.form-check{
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+   
+
+}
+.welcome{
+    font-family: 'Unispace', Courier, monospace;
+    font-size: 11px ;
+    display: block;
+    margin-top: 100px;
+    margin-left: 690px;
+    
+    }
+body{
+    background-image: url(images/fondo1.png)
+}
+.links{
+    color: black;
+}
+.h4{
+    padding-top: 15px;
+    margin-left:110px;
+}
