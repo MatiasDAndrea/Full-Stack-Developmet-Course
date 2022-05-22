@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina de Usuario</title>
+    <title>Main Page</title>
+    <link href='https://css.gg/bell.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://css.gg/bell.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body style="background-image: url('images/fondo1.png'); background-size: 100vw;font-family:BIZ UDPGothic">
+<body>
     <div class="container d-flex  justify-content-center vh-100">
         <div class="row">
             
             <!-- General Menu-->
-            <div class="col-12">
-                <div class="card m-1">
+            <div class="col-12 border">
+                <div class="card">
                     <div class="card-body">
                         <div class="d-flex bd-highlight mb-1">
                             <div class="me-auto p-1 bd-highlight">
@@ -35,8 +35,7 @@
                             </div>
 
                             <div class="me-auto p-1 bd-highlight">
-                                <img class="img-fluid" src="images/logosmall.png">
-                                
+                                <h1 style="font-family: Lobster";>Itbank</h1>
                                 
                             </div>
 
@@ -52,7 +51,7 @@
             </div>
 
             <!-- Search Bar-->
-            <div class="col-12 d-none d-sm-block">
+            <div class="col-12 border d-none d-sm-block">
                 <nav class="navbar navbar-light">
                     <div class="container-fluid align-items-center justify-content-center">
                       <form class="d-flex w-75">
@@ -64,8 +63,8 @@
             </div>
 
             <!-- Account Selector-->
-            <div class="col-12 d-block d-sm-none">
-                <div class="card m-1" style="background:inherit ;backdrop-filter: blur(5px);">
+            <div class="col-12 border d-block d-sm-none">
+                <div class="card">
                     <div class="card-body">
                         <div class="d-flex">
                             <select class="form-select form-select-m mb-0 btn btn-outline-primary border-2" aria-label=".form-select-m example">
@@ -80,8 +79,8 @@
             </div>
 
             <!-- Account State-->
-            <div class="col-12 d-block d-sm-none">
-                <div class="card m-1" style="background:inherit ;backdrop-filter: blur(5px);">
+            <div class="col-12 border d-block d-sm-none">
+                <div class="card">
                     <div class="card-body">
                         <div class="d-flex border m-0 border-primary border-2 rounded">
                             <div class="me-auto p-2 bd-highlight">
@@ -97,8 +96,8 @@
             </div>
             
             <!-- Buttons-->
-            <div class="col-12">
-                <div class="card m-1" style="background:inherit ;backdrop-filter: blur(5px);">
+            <div class="col-12 border">
+                <div class="card">
                     <div class="card-body">
                         <div class="d-flex bd-highlight justify-content-center">
                             
@@ -125,12 +124,12 @@
             </div>
 
             <!-- Account Cards-->
-            <div class="col-12 d-none d-sm-block">
-                <div class="d-flex rounded justify-content-center border m-1" style="background:inherit ;backdrop-filter: blur(5px);">
-                    
+            <div class="col-12 border border d-none d-sm-block">
+                <div class="d-flex">
+
                     <div class="card m-2 h-100">
                         <div class="card body p-2 border-2 border-primary">
-                            <h4>123-456978/8</h4>
+                            <h2>123-456978/8</h2>
                             <h6>Cuenta Unica</h6><hr>
                             <ul>
                                 <li>5000,00 $</li>
@@ -141,7 +140,7 @@
 
                     <div class="card m-2 h-100">
                         <div class="card body p-2 border-2 border-primary">
-                            <h4>Visa xxxx-1000</h4>
+                            <h2>Visa XXXX-1000</h2>
                             <h6>Tarjeta de Credito</h6>
                             <h6>Vencimiento __/__</h6><hr>
                             <ul>
@@ -151,9 +150,9 @@
                         </div>
                     </div>
 
-                    <div class="card-fluid m-2 h-100">
+                    <div class="card m-2 h-100">
                         <div class="card body p-2 border-2 border-primary">
-                            <h4 style="overflow-wrap: break-word">Visa xxxx-2000</h4>
+                            <h2>Visa xxxx-2000</h2>
                             <h6>Tarjeta de Credito</h6>
                             <h6>Vencimiento __/__</h6><hr>
                             <ul>
@@ -169,9 +168,10 @@
 
             </div>
 
+            
             <!-- Account Movements-->
-            <div class="col-12 d-block d-sm-none">
-                <div class="card m-1" style="background:inherit ;backdrop-filter: blur(5px);" >
+            <div class="col-12 border d-block d-sm-none">
+                <div class="card">
                     <div class="card-body">
                         <div class="list-group">
                             <a href="#" class="list-group-item list-group-item-action border-2 rounded border-primary">
@@ -199,10 +199,25 @@
                               <small class="text-muted">Compra via Web</small>
                             </a>
                         </div>
-                    </div>
-                </div> 
+                </div>
             </div>
-        </div>    
+
+
+
+
+       
+       
+       
+       
+            </div>
+
+            <!-- Footer-->
+            <div class="col-12 border">
+                <footer style="font-family: Lobster;">
+                    Powered By You
+                </footer>
+            </div>
+        </div>
     </div>
 </body>
 </html>
