@@ -101,6 +101,7 @@ hgroup {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(244, 252, 255, 0);
+  max-width: fit-content;
 }
 .barra {
   width: 100%;
