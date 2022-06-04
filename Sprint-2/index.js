@@ -34,6 +34,11 @@ function addCards(reference, nombre, dinero){
     dineroText.id = (`dineroText${reference}`)
     dineroText.innerHTML = dinero
 
+    let deleteButton = document.createElement("button")
+    deleteButton.id = (`deleteButton${reference}`)
+    deleteButton.onclick = deleteCard
+    deleteButton.innerHTML = "Delete"
+
     /*
     Se adjuntan los elementos para formar la estructura deseada
    */
@@ -46,8 +51,10 @@ function addCards(reference, nombre, dinero){
     const sElement = document.getElementById(`Second${reference}`)
     sElement.appendChild(nameText)
     sElement.appendChild(dineroText)
+    sElement.appendChild(deleteButton)
 
 }
+
 
 function add(){
 
@@ -94,4 +101,32 @@ function add(){
         addCards(order, name, money)
     }
     
+}
+
+
+function deleteCard(){
+
+    /*
+    La funcion delete() se encarga de eliminar, segun disposicion del usuario,
+    aquellos elementos que no quiere que pertenezcan a la lista.
+    Actua tanto sobre arr como sobre el codigo HTML
+    */
+
+    /*
+    Busco el boton que fue presionado y me encargo de borrar
+    ese bloque de HTML.
+    */
+    const reference = this.id.match(/\d/g).join('')
+    const element  = document.getElementById("Main")
+    const removeId = document.getElementById(`First${reference}`)
+    element.removeChild(removeId)
+
+    /*
+    Elimino del array el elemento especifico
+    */
+    
+    arr = arr.filter((el)=>{
+
+        return el[2] != reference
+    })
 }
