@@ -1,4 +1,4 @@
-let arr=[]
+let arr=[] //[Nombre, dinero, numReferencia]
 let order
 
 function addCards(reference, nombre, dinero){
@@ -30,9 +30,13 @@ function addCards(reference, nombre, dinero){
     nameText.id = (`nameText${reference}`)
     nameText.innerHTML = nombre
 
-    let dineroText = document.createElement("h2")
+    let dineroText = document.createElement("h3")
     dineroText.id = (`dineroText${reference}`)
-    dineroText.innerHTML = dinero
+    dineroText.innerHTML = `Pago: \$${dinero}`
+
+    let saldoText = document.createElement("h3")
+    saldoText.id = (`saldoText${reference}`)
+   
 
     let deleteButton = document.createElement("button")
     deleteButton.id = (`deleteButton${reference}`)
@@ -42,7 +46,7 @@ function addCards(reference, nombre, dinero){
     /*
     Se adjuntan los elementos para formar la estructura deseada
    */
-    const element  = document.getElementById("Main")
+    const element  = document.getElementById("Cards")
     element.appendChild(fDiv)
 
     const fElement = document.getElementById(`First${reference}`)
@@ -51,6 +55,7 @@ function addCards(reference, nombre, dinero){
     const sElement = document.getElementById(`Second${reference}`)
     sElement.appendChild(nameText)
     sElement.appendChild(dineroText)
+    sElement.appendChild(saldoText)
     sElement.appendChild(deleteButton)
 
 }
@@ -78,7 +83,9 @@ function add(){
         if (el[0].toLowerCase() == name.toLowerCase()){
 
             let htmlMoney = document.getElementById(`dineroText${el[2]}`)
-            htmlMoney.innerHTML = `${Number(htmlMoney.innerHTML) + Number(money)}`
+            let actualMoney = Number(htmlMoney.innerHTML.match(/\d/g).join(''))
+        
+            htmlMoney.innerHTML = `Pago: \$${actualMoney + Number(money)}`
             key = true //Marco que hubo un nombre ya existente en la lista
 
             return [el[0], Number(el[1])+Number(money), el[2]]
@@ -117,7 +124,7 @@ function deleteCard(){
     ese bloque de HTML.
     */
     const reference = this.id.match(/\d/g).join('')
-    const element  = document.getElementById("Main")
+    const element  = document.getElementById("Cards")
     const removeId = document.getElementById(`First${reference}`)
     element.removeChild(removeId)
 
@@ -129,4 +136,46 @@ function deleteCard(){
 
         return el[2] != reference
     })
+}
+
+function calcularSaldos(){
+
+    /*
+    calcularSaldos() se encarga de tomar el arr ingresado hasta el momento
+    y calcular el saldo, a favor o en contra, segun el monto que pago.
+   */
+    
+    const cantidadPersonas = arr.length
+
+    if (cantidadPersonas!=0){
+        const saldoPago = Number(document.getElementById("totalPago").value)
+        
+        let totalPersona = saldoPago/cantidadPersonas
+
+        arr.forEach((el)=>{
+
+            let ref = el[2]
+            const htmlObject = document.getElementById(`saldoText${ref}`)
+
+            if ((el[1]-totalPersona)<0){
+                htmlObject.innerHTML = `Aun debe pagar: \$${Math.abs(Math.round(el[1]-totalPersona))}`
+            }else {
+                htmlObject.innerHTML = `Le deben pagar: \$${Math.round(el[1]-totalPersona)}`
+            }
+        })
+    } else{
+        prompt("El numero de participantes debe ser mayor a cero!")
+    }
+}
+
+function refresh(){
+
+    /*
+    La funcion refresh() elimina todos los usuarios creados
+   */
+    const element = document.getElementById("Cards")
+    arr = []
+    element.replaceChildren()
+    console.log(arr)
+    
 }
