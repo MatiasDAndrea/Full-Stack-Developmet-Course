@@ -13,13 +13,25 @@ function addCards(reference, nombre, dinero){
     Se crean un conjunto de elementos, asignando clases segun bootstrap
     a cada uno de los elementos creados
     */
+    const styles = [
+        "bg-primary",
+        "bg-secondary",
+        "bg-success",
+        "bg-danger",
+        "bg-warning",
+        "bg-info",
+        "bg-light",
+        "bg-dark",
+    ]
+
+    const random = Math.round(Math.random()*7)
     
     let fDiv = document.createElement("div")
-    fDiv.classList.add("row", "border")
+    fDiv.classList.add("row", "border","m-2",`${styles[random]}`,"rounded")
     fDiv.id = (`First${reference}`)
  
     let sDiv = document.createElement("div")
-    sDiv.classList.add("col-12", "border")
+    sDiv.classList.add("col-12", "border","rounded")
     sDiv.id = (`Second${reference}`)
 
     let tDiv = document.createElement("div")
