@@ -111,7 +111,7 @@ function add(){
     let money = document.getElementById("Pago").value
     let key = false
 
-    if (name == "" || money ==""){
+    if (name == "" || Number(money)<=0 || money ==""){
         alert("Coloque un Nombre y Monto valido")
         return
     }
@@ -192,6 +192,9 @@ function calcularSaldos(){
 
     if (saldoPago == ""){
         alert("Ingrese el Gasto a dividir!")
+        return
+    }else if(Number(saldoPago)<=0){
+        alert("Ingrese un numero valido!")
         return
     }
 
