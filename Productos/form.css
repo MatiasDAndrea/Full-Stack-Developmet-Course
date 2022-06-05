@@ -1,0 +1,197 @@
+body{
+	background: #fdfdfd;
+	background-image: url("./imagenes/marketplace-futuro-banca.jpg");
+	background-repeat: no-repeat;
+	background-size: auto;
+	padding: 0 0rem;
+	color: #295a84;
+}
+
+
+.header{
+	background: none;
+}
+
+nav{
+	display: flex;
+	justify-content: center;
+}
+
+
+.list{
+	align-items: center;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 1rem 0;
+}
+
+.log-in, .etiqueta{
+	align-items: left;
+	border-bottom: none;
+}
+
+.item{
+	margin-left: auto;
+}
+
+.item:nth-child(2){
+	display: none;
+}
+
+.item, .link{
+	align-items: right;
+	text-decoration: none;
+	color: #4a38b4;
+	padding: 0 0rem;
+	font-family: "BIZ UDPGothic", sans-serif;
+}
+
+.button {
+	background-color: #4CAF50; /* Green */
+	border: auto;
+	color: white;
+	padding: auto;
+	text-align: center;
+	text-decoration: firebrick;
+	display: inline-table;
+	font-size: 50px;
+  }
+
+.link:hover{
+	border-bottom: .3rem solid lightblue;
+}
+
+.titulo{
+	align-items: right;
+	text-decoration: none;
+	color: #4a38b4;
+	padding: 0 0rem;
+	font-family: "BIZ UDPGothic", sans-serif;
+	box-shadow: 0.2rem 0.2rem 0.2rem 0.2re;
+}
+.container1{
+    justify-items: auto;
+	background-color: #e4dedea9;
+    box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem;
+	size-adjust: tarjeta;
+    background-position: auto;
+    font-family: "BIZ UDPGothic", sans-serif;
+	size-adjust: auto;
+}
+
+.tarjeta{
+	justify-content: auto;
+	text-align: auto;
+	align-items: center;
+	padding: 0rem 0rem;
+	border: 0.25rem solid rgb(12, 12, 12);
+	width: 30%;
+	border-radius: 5px;
+	margin: auto;
+}
+
+.newspaper {
+	column-count: 3;
+  }
+
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+  }
+
+.foot{
+	background-color: rgba(101, 102, 104, 0.5);
+	background-size: cover;
+}
+
+
+
+
+.header, h1{
+	font-family: "BIZ UDPGothic", sans-serif;
+	font-size: 3rem;
+	color: rgb(243, 237, 237);
+	padding: 1rem;
+}
+
+.tarjeta, h2{
+	font-family: "BIZ UDPGothic", sans-serif;
+	font-size: 1.35rem;
+	color: black;
+}
+
+.tarjeta, h3{
+	font-family: "BIZ UDPGothic", sans-serif;
+	font-size: 1.35rem;
+	color: black;
+}
+
+
+.log-in {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+	padding: 0 0rem;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+.label{
+	padding: 1rem 0;
+	font-size: 1.1rem;
+	font-family: "BIZ UDPGothic", sans-serif;
+}
+
+.input{
+	width: 40%;
+	height: 1.5rem;
+}
+
+.consulta{
+	max-width:90%;
+    max-height:30%;
+}
+
+.button{
+	margin: 1rem 0;
+    font-size: 1.1rem;
+    background: #469536;
+    color: white;
+    border-radius: 5px;
+    width: 25%;
+    height: 2rem;
+    border-color: white;
+}
+
+@media screen and (max-width: 576px){
+
+    .list{
+    	flex-direction: column;
+    }
+
+    .item{
+    	padding: .5rem 0;
+    }
+
+    .item:first-child{
+    	display: none;
+    }
+
+    .item:nth-child(2){
+	    display: flex;
+    }
+
+    .contacto{
+    	color: #295a84;
+    }
+
+	.button, .input{
+		width: 90%;
+	}
+}
+
+@media screen and (min-width: 576px) and (max-width: 850px){
+	.button, .input{
+		width: 70%;
+	}
+}
