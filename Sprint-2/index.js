@@ -1,6 +1,21 @@
 let arr=[] //[Nombre, dinero, numReferencia]
 let order
 
+function textUpdate(){
+
+    /*
+    textUpdate() es la funcion encargada de ante nuevos calculos,
+    reinicia el texto que muestra cuanto debe pagar cada participante.
+   */
+
+    arr.forEach((el)=>{
+
+        let ref = el[2]
+        let text = document.getElementById(`saldoText${ref}`)
+        text.innerHTML = ""
+    })
+}
+
 function addCards(reference, nombre, dinero){
 
     /*
@@ -13,7 +28,7 @@ function addCards(reference, nombre, dinero){
     Se crean un conjunto de elementos, asignando clases segun bootstrap
     a cada uno de los elementos creados
     */
-    const styles = [
+    const bgStyles = [
         "bg-primary",
         "bg-secondary",
         "bg-success",
@@ -21,17 +36,26 @@ function addCards(reference, nombre, dinero){
         "bg-warning",
         "bg-info",
         "bg-light",
-        "bg-dark",
+    ]
+
+    const textStyles = [
+        "text-white",
+        "text-white",
+        "text-white",
+        "text-white",
+        "text-dark",
+        "text-dark",
+        "text-dark",
     ]
 
     const random = Math.round(Math.random()*7)
     
     let fDiv = document.createElement("div")
-    fDiv.classList.add("row", "border","m-2",`${styles[random]}`,"rounded")
+    fDiv.classList.add("row", "border","m-2",`${bgStyles[random]}`,`${textStyles[random]}`,"rounded")
     fDiv.id = (`First${reference}`)
  
     let sDiv = document.createElement("div")
-    sDiv.classList.add("col-12", "border","rounded")
+    sDiv.classList.add("col-12","rounded","m-1")
     sDiv.id = (`Second${reference}`)
 
     let tDiv = document.createElement("div")
@@ -52,8 +76,9 @@ function addCards(reference, nombre, dinero){
 
     let deleteButton = document.createElement("button")
     deleteButton.id = (`deleteButton${reference}`)
+    deleteButton.classList.add("btn","btn-outline-dark","rounded-circle")
     deleteButton.onclick = deleteCard
-    deleteButton.innerHTML = "Delete"
+    deleteButton.innerHTML = "Eliminar"
 
     /*
     Se adjuntan los elementos para formar la estructura deseada
@@ -65,6 +90,7 @@ function addCards(reference, nombre, dinero){
     fElement.appendChild(sDiv)
 
     const sElement = document.getElementById(`Second${reference}`)
+
     sElement.appendChild(nameText)
     sElement.appendChild(dineroText)
     sElement.appendChild(saldoText)
@@ -80,12 +106,16 @@ function add(){
     le asigna un numero de referencia al nuevo usuario y crea su perfil de 
     cuenta.
     */
-
-    const name  = document.getElementById("Nombre").value
-    const money = document.getElementById("Pago").value
+    textUpdate()
+    let name  = document.getElementById("Nombre").value
+    let money = document.getElementById("Pago").value
     let key = false
-    
 
+    if (name == "" || money ==""){
+        alert("Coloque un Nombre y Monto valido")
+        return
+    }
+    
     /*
     Bloque de codigo para filtrar informacion ingresada por el usuario
     */
@@ -118,8 +148,7 @@ function add(){
 
         arr.push([name, money, order])
         addCards(order, name, money)
-    }
-    
+    }  
 }
 
 
@@ -135,6 +164,7 @@ function deleteCard(){
     Busco el boton que fue presionado y me encargo de borrar
     ese bloque de HTML.
     */
+    textUpdate()
     const reference = this.id.match(/\d/g).join('')
     const element  = document.getElementById("Cards")
     const removeId = document.getElementById(`First${reference}`)
@@ -156,11 +186,16 @@ function calcularSaldos(){
     calcularSaldos() se encarga de tomar el arr ingresado hasta el momento
     y calcular el saldo, a favor o en contra, segun el monto que pago.
    */
-    
+
     const cantidadPersonas = arr.length
+    const saldoPago = Number(document.getElementById("totalPago").value)
+
+    if (saldoPago == ""){
+        alert("Ingrese el Gasto a dividir!")
+        return
+    }
 
     if (cantidadPersonas!=0){
-        const saldoPago = Number(document.getElementById("totalPago").value)
         
         let totalPersona = saldoPago/cantidadPersonas
 
@@ -176,7 +211,7 @@ function calcularSaldos(){
             }
         })
     } else{
-        prompt("El numero de participantes debe ser mayor a cero!")
+        alert("El numero de participantes debe ser mayor a cero!")
     }
 }
 
@@ -188,6 +223,6 @@ function refresh(){
     const element = document.getElementById("Cards")
     arr = []
     element.replaceChildren()
-    console.log(arr)
     
 }
+
