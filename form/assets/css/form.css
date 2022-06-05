@@ -1,0 +1,125 @@
+body{
+	background: #fdfdfd;
+	background-image: url("../img/fondo1.png");
+	color: #295a84;
+}
+
+.container{
+	width: 100%;
+}
+
+.header{
+	background: white;
+}
+
+nav{
+	display: flex;
+	justify-content: center;
+}
+
+.list{
+	align-items: center;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 1rem 0;
+}
+
+.item:nth-child(2){
+	display: none;
+}
+
+.item, .link{
+	text-decoration: none;
+	color: #295a84;
+	padding: 0 1rem;
+	font-family: "BIZ UDPGothic", sans-serif;
+}
+
+.link:hover{
+	border-bottom: .3rem solid lightblue;
+}
+
+.container1{
+	display: flex;
+	justify-content: center;
+	
+}
+
+.contacto{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	padding: 1rem 1rem;
+	border: 1px solid lightgrey;
+	width: 40%;
+	border-radius: 5px;
+	margin: 2rem 0;
+}
+
+.contacto, h2{
+	font-family: "BIZ UDPGothic", sans-serif;
+	font-size: 1.35rem;
+}
+
+.label{
+	padding: 1rem 0;
+	font-size: 1.1rem;
+	font-family: "BIZ UDPGothic", sans-serif;
+}
+
+.input{
+	width: 40%;
+	height: 1.5rem;
+}
+
+.consulta{
+	max-width:90%;
+    max-height:30%;
+}
+
+.button{
+	margin: 1rem 0;
+    font-size: 1.1rem;
+    background: #469536;
+    color: white;
+    border-radius: 5px;
+    width: 25%;
+    height: 2rem;
+    border-color: white;
+}
+
+@media screen and (max-width: 576px){
+
+    .list{
+    	flex-direction: column;
+    }
+
+    .item{
+    	padding: .5rem 0;
+    }
+
+    .item:first-child{
+    	display: none;
+    }
+
+    .item:nth-child(2){
+	    display: flex;
+    }
+
+    .contacto{
+    	color: #295a84;
+    }
+
+	.button, .input{
+		width: 90%;
+	}
+}
+
+@media screen and (min-width: 576px) and (max-width: 850px){
+	.button, .input{
+		width: 70%;
+	}
+}
