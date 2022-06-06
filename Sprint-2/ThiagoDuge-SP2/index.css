@@ -1,0 +1,20 @@
+.form {
+    margin-top: 15rem;
+    
+}
+.col-11{
+    text-align: center;
+    padding: bottom 2rem;
+}
+
+.logo{
+    display: block;
+    text-align: center;
+}
+
+body{
+    background: url(back2.jpg) no-repeat center fixed;
+    background-size: cover;
+    font-family: 'BIZ UDPGothic', sans-serif;
+}
+
