@@ -1,0 +1,24 @@
+[
+    {
+        "id":"123-45697/8",
+        "tipoCuenta":"Cuenta Unica",
+        "pesos":5000,
+        "dolares":6000
+    }
+
+    {
+        "id":"Visa xxxx-1000",
+        "tipoCuenta":"Tarjeta de Credito",
+        "pesos":6000,
+        "dolares":7000
+    }
+
+    {
+        "id":"Visa xxxx-2000",
+        "tipoCuenta":"Tarjeta de Credito",
+        "pesos":8000,
+        "dolares":9000
+    }
+
+    
+]
