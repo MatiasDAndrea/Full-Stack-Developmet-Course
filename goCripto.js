@@ -10,14 +10,9 @@ function init(){
     init() se encarga de inicializar los datos relevantes 
     de la HomePage
     */
-    fetch('Main.html')
-        .then(response=> response.text())
-        .then(text=> {
-
-            document.getElementById("HomeHTML").innerHTML = text
-            document.getElementById("")
-        });
-    
+    fetch("Cuentas.json")
+        .then(el=>el.json())
+        .then(data=>)
 
 }
 
