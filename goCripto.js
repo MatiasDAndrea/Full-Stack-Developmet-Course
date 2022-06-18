@@ -28,7 +28,6 @@ async function init(){
     cardElement.innerHTML = cardBody
 }
 
-
 function asd(){
 
     let endpoint = "https://api.binance.com/api/v3/ticker/price"
