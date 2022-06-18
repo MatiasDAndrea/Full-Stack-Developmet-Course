@@ -1,6 +1,6 @@
 let accountData
 
-async function fechtJSON(url){
+async function fetchJSON(url){
     
     /*
     fetchJSON() se encarga de obtener la informacion del JSON.
@@ -16,7 +16,7 @@ async function init(){
     en el desplegable
     */
 
-    accountData = await fechtJSON("Cuentas.json")
+    accountData = await fetchJSON("Cuentas.json")
     const cardElement = document.getElementById("Cuentas")
     let cardBody ="<option selected>Seleccionar Cuenta</option>"
 
@@ -48,7 +48,7 @@ function plotValues(data){
    let regex = /USDT\b/
 
    data.forEach(el=>{
-        if (regex.test(el.symbol) && el.price >=10){
+        if (regex.test(el.symbol) & el.price >=10){
             body += `<tr><td>${el.symbol}</td><td>${el.price}</td></tr>`
         }
    })
@@ -56,4 +56,43 @@ function plotValues(data){
    document.getElementById("CriptoValues").innerHTML = body
 }
 
-console.log(init())
+async function conversion(){
+
+    /*
+        conversion() se encarga de realizar la conversion entre monedas.
+    */
+    
+    const inputValue = document.getElementById("inputValue")
+    const inputCoin = document.getElementById("inputCoin")
+
+    const outputValue = document.getElementById("outputValue")
+
+
+    if (inputCoin.value != "" & outputCoin.value != ""){
+
+        let regex1 = new RegExp(`${outputCoin.value}${inputCoin.value}`)
+        let regex2 = new RegExp(`${inputCoin.value}${outputCoin.value}`)
+        const actualCoin = Number(inputValue.value)
+
+        data = await fetchJSON("https://api.binance.com/api/v3/ticker/price")
+        
+        data.forEach(el=>{
+            if (regex1.test(el.symbol)){
+                
+                const coef = Number(el.price)
+                outputValue.value = actualCoin*coef
+            }
+            else if (regex2.test(el.symbol)){
+
+                const coef = Number(1/el.price)
+                outputValue.value = actualCoin*coef
+            }
+        })
+    }
+}
+
+
+
+
+
+init()

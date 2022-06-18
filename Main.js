@@ -26,7 +26,7 @@ async function init(){
        */
 
         let list = ""
-        for (key in el.dinero){
+        for (let key in el.dinero){
 
            list += `<li>${key}: ${el.dinero[key]}</li>`
         }
