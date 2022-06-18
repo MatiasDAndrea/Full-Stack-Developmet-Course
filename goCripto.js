@@ -1,12 +1,11 @@
 
 async function fechtJSON(url){
+    
     /*
     fetchJSON() se encarga de obtener la informacion del JSON.
    */
   const response = await fetch(url)
   return response.json()
-  
-
 }
 
 async function init(){
