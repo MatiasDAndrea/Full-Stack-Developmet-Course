@@ -1,23 +1,33 @@
 [
     {
         "id":"123-45697/8",
-        "tipoCuenta":"Cuenta Unica",
-        "pesos":5000,
-        "dolares":6000
-    }
+        "tipoCuenta":"Caja Ahorro",
+        "dinero":{
+            "ARS":5000,
+            "USD":6000,
+            "BTC":8000
+        }
 
-    {
-        "id":"Visa xxxx-1000",
-        "tipoCuenta":"Tarjeta de Credito",
-        "pesos":6000,
-        "dolares":7000
     }
-
+    ,
     {
-        "id":"Visa xxxx-2000",
-        "tipoCuenta":"Tarjeta de Credito",
-        "pesos":8000,
-        "dolares":9000
+        "id":"145-31245/4",
+        "tipoCuenta":"Caja Ahorro",
+        "dinero":{
+            "ARS":5000,
+            "USD":76000,
+            "USDT":500
+        }
+    }
+    ,
+    {
+        "id":"359-12549/7",
+        "tipoCuenta":"Caja Ahorro",
+        "dinero":{
+            "ARS":58000,
+            "USD":6000,
+            "ETH":800
+        }
     }
 
     
