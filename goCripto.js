@@ -66,7 +66,7 @@ async function conversion(){
     const inputCoin = document.getElementById("inputCoin")
 
     const outputValue = document.getElementById("outputValue")
-
+    const outputCoin = document.getElementById("outputCoin")
 
     if (inputCoin.value != "" & outputCoin.value != ""){
 
@@ -77,18 +77,39 @@ async function conversion(){
         data = await fetchJSON("https://api.binance.com/api/v3/ticker/price")
         
         data.forEach(el=>{
-            if (regex1.test(el.symbol)){
+            if (regex2.test(el.symbol)){
                 
                 const coef = Number(el.price)
-                outputValue.value = actualCoin*coef
+                outputValue.value = actualCoin*coef.toFixed(8)
             }
-            else if (regex2.test(el.symbol)){
+            else if (regex1.test(el.symbol)){
 
                 const coef = Number(1/el.price)
-                outputValue.value = actualCoin*coef
+                outputValue.value = actualCoin*coef.toFixed(8)
             }
         })
     }
+}
+
+function flipCoins(){
+
+    /*
+        flipCoins() se encarga de invertir los tipos de moneda seleccionados.
+        La funcion es llamada al presionar el icono.
+   */
+
+    const inputCoin = document.getElementById("inputCoin")
+    const outputCoin = document.getElementById("outputCoin")
+
+    let inputValue = inputCoin.value
+    let outputValue = outputCoin.value
+
+    inputCoin.value = outputValue
+    outputCoin.value = inputValue
+
+    // Llamo a la funcion conversion() para que ejecute la conversion.
+    conversion()
+
 }
 
 
