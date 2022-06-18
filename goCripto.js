@@ -1,3 +1,4 @@
+let accountData
 
 async function fechtJSON(url){
     
@@ -15,11 +16,11 @@ async function init(){
     en el desplegable
     */
 
-    const data = await fechtJSON("Cuentas.json")
+    accountData = await fechtJSON("Cuentas.json")
     const cardElement = document.getElementById("Cuentas")
     let cardBody ="<option selected>Seleccionar Cuenta</option>"
 
-    data.forEach(el=>{
+    accountData.forEach(el=>{
 
         cardBody += `<option value="1">${el.id}</option>`
     })
