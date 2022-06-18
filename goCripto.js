@@ -1,30 +1,32 @@
 
-/*
-    getAccount() se encarga de obtener de Main.html las cuentas
-    existentes del usuario.
-*/
-
-function init(){
-
+async function fechtJSON(url){
     /*
-    init() se encarga de inicializar los datos relevantes 
-    de la HomePage
-    */
-    fetch("Cuentas.json")
-        .then(el=>el.json())
-        .then(data=>)
+    fetchJSON() se encarga de obtener la informacion del JSON.
+   */
+  const response = await fetch(url)
+  return response.json()
+  
 
 }
 
-let HomeValues
-fetch('Main.html')
-.then(response=> response.text())
-.then(text=> HomeValues=text);
+async function init(){
 
-let accounts = document.getElementsByClassName("AccountNumber")
-console.log(HomeValues)
+    /*
+    init() se encarga de inicializar las cuentas existentes
+    en el desplegable
+    */
 
+    const data = await fechtJSON("Cuentas.json")
+    const cardElement = document.getElementById("Cuentas")
+    let cardBody ="<option selected>Seleccionar Cuenta</option>"
 
+    data.forEach(el=>{
+
+        cardBody += `<option value="1">${el.id}</option>`
+    })
+
+    cardElement.innerHTML = cardBody
+}
 
 
 function asd(){
@@ -54,4 +56,4 @@ function plotValues(data){
    document.getElementById("CriptoValues").innerHTML = body
 }
 
-init()
+console.log(init())

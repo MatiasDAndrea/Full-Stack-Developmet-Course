@@ -5,14 +5,14 @@
         "pesos":5000,
         "dolares":6000
     }
-
+    ,
     {
         "id":"Visa xxxx-1000",
         "tipoCuenta":"Tarjeta de Credito",
         "pesos":6000,
         "dolares":7000
     }
-
+    ,
     {
         "id":"Visa xxxx-2000",
         "tipoCuenta":"Tarjeta de Credito",
