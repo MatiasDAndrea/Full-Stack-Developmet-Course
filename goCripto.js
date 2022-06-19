@@ -22,7 +22,7 @@ async function init(){
 
     accountData.forEach(el=>{
 
-        cardBody += `<option value="1">${el.id}</option>`
+        cardBody += `<option value="${el.id}">${el.id}</option>`
     })
 
     cardElement.innerHTML = cardBody
@@ -72,6 +72,7 @@ async function conversion(){
 
         let regex1 = new RegExp(`${outputCoin.value}${inputCoin.value}`)
         let regex2 = new RegExp(`${inputCoin.value}${outputCoin.value}`)
+
         const actualCoin = Number(inputValue.value)
 
         data = await fetchJSON("https://api.binance.com/api/v3/ticker/price")
@@ -86,6 +87,11 @@ async function conversion(){
 
                 const coef = Number(1/el.price)
                 outputValue.value = actualCoin*coef.toFixed(8)
+
+            }else if (inputCoin.value == outputCoin.value){
+
+                const coef = 1
+                outputValue.value = actualCoin*coef
             }
         })
     }
@@ -112,7 +118,35 @@ function flipCoins(){
 
 }
 
+function plotAccount(){
 
+    /*
+        plotAccount() se encarga de imprimir en pantalla el resumen
+        de cuenta.
+    */
+
+    const element = document.getElementById("Cuentas")
+    const list = document.getElementById("accountResume")
+
+    let head = "<h2>Resumen de Cuenta</h2>"
+    let body = ""
+    
+
+    for (let i=0;i<accountData.length;i++){
+        console.log(accountData[i].id)
+        console.log(element.value)
+        if(accountData[i].id == element.value){
+
+            for (let key in accountData[i].dinero){
+
+                body += `<li>${key}: ${accountData[i].dinero[key]}</li>`
+            }
+            list.innerHTML = `${head}<ul>${body}</ul>`
+            break
+        }
+        list.innerHTML = body
+    }
+}
 
 
 
