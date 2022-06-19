@@ -17,53 +17,61 @@
         <div class="row">
             <div class="col-12">
                 
-                <select class="form-select" aria-label="Default select example" id="Cuentas">
+                <select class="form-select" aria-label="Default select example" id="Cuentas" onchange="plotAccount()">
                    
                 </select>
             </div>
         </div>
 
+        <div class="row">
+            <div id="accountResume" class="col-12">
+            </div>
+        </div>
+
         <!--Conversion de monedas-->
         <div class="row">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center justify-content-center">
                 
                 <!--Moneda a ingresar-->
                 <div class="flex-fill border">
                     <div class="d-flex justify-content-between">
                         <div class="flex-fill">
-                            <label for="form" class="form-label">Cantidad</label>
-                            <input type="email" class="form-control" id="form" placeholder="Value">
+                            <label for="inputValue" class="form-label">Cantidad</label>
+                            <input id="inputValue" type="number" class="form-control" placeholder="Value" onchange="conversion()">
                         </div>
                         <div>
-                            <label for="moneda" class="form-label">Moneda</label>
-                            <select class="form-select" aria-label="Default select example" id="moneda">
-                                <option selected></option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <label for="inputCoin" class="form-label">Moneda</label>
+                            <select class="form-select" aria-label="Default select example" id="inputCoin" onchange="conversion()">
+                                <option selected value=""></option>
+                                <option value="BTC">BTC</option>
+                                <option value="ETH">ETH</option>
+                                <option value="USDT">USDT</option>
                               </select>
                         </div>
 
                     </div>
                 </div>
                 <!--Icono-->
-                <div id="flipCoin" class="border">Icono</div>
+                <div id="flipCoin" class="border">
+
+                    <button type="button" onclick="flipCoins()">&#8646</button>
+                </div>
 
                 <!--Conversion-->
                 <div class="flex-fill border">
                     <div class="d-flex justify-content-between">
                         <div class="flex-fill">
-                            <label for="form" class="form-label">Cantidad</label>
-                            <input type="email" class="form-control" id="form" placeholder="Value" readonly>
+                            <label for="outputValue" class="form-label">Cantidad</label>
+                            <input id="outputValue" type="number" class="form-control" placeholder="Value" readonly>
                         </div>
 
                         <div>
-                            <label for="moneda" class="form-label">Moneda</label>
-                            <select class="form-select" aria-label="Default select example" id="moneda">
-                                <option selected></option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <label for="outputCoin" class="form-label">Moneda</label>
+                            <select class="form-select" aria-label="Default select example" id="outputCoin" onchange="conversion()">
+                                <option selected value=""></option>
+                                <option value="BTC">BTC</option>
+                                <option value="ETH">ETH</option>
+                                <option value="USDT">USDT</option>
                               </select>
                         </div>
                     </div>
@@ -75,9 +83,10 @@
         <!--Accion de compra-->
         <div class="row">
             <div class="col-12 border">
-                <button type="button" onclick="asd()">asd</button>
+                <button type="button" onclick="buy()">asd</button>
             </div>
         </div>
+
 
         <div class="row">
             <div class="col-12 border">
