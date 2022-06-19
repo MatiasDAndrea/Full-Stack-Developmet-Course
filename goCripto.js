@@ -9,6 +9,7 @@ async function fetchJSON(url){
   return response.json()
 }
 
+
 async function init(){
 
     /*
@@ -38,6 +39,7 @@ function asd(){
 
 }
 
+
 function plotValues(data){
     
     /* 
@@ -55,6 +57,7 @@ function plotValues(data){
    
    document.getElementById("CriptoValues").innerHTML = body
 }
+
 
 async function conversion(){
 
@@ -97,6 +100,7 @@ async function conversion(){
     }
 }
 
+
 function flipCoins(){
 
     /*
@@ -118,6 +122,7 @@ function flipCoins(){
 
 }
 
+
 function plotAccount(){
 
     /*
@@ -133,8 +138,7 @@ function plotAccount(){
     
 
     for (let i=0;i<accountData.length;i++){
-        console.log(accountData[i].id)
-        console.log(element.value)
+ 
         if(accountData[i].id == element.value){
 
             for (let key in accountData[i].dinero){
@@ -149,5 +153,66 @@ function plotAccount(){
 }
 
 
+function buy(){
+
+    /*
+        La funcion buy() simula la compra o intercambio
+        de monedas.
+    */
+
+    const account = document.getElementById("Cuentas")
+
+    const inputValue = Number(document.getElementById("inputValue").value)
+    const inputCoin = document.getElementById("inputCoin").value
+
+    const outputValue = Number(document.getElementById("outputValue").value)
+    const outputCoin = document.getElementById("outputCoin").value
+
+    // Transferencia entre monedas
+    for (let i=0;i<accountData.length;i++){
+
+        if (accountData[i].id == account.value){
+
+            const ownPropCheckIn = accountData[i].dinero.hasOwnProperty(inputCoin)
+            const ownPropCheckOut = accountData[i].dinero.hasOwnProperty(outputCoin)
+
+            if (ownPropCheckIn & accountData[i].dinero[inputCoin]>=inputValue ){
+
+                //Se efectua la compra
+                accountData[i].dinero[inputCoin] -= inputValue
+
+                if (ownPropCheckOut){
+
+                    accountData[i].dinero[outputCoin] += outputValue
+                }
+                else {
+
+                    accountData[i].dinero[outputCoin] = outputValue
+                }
+
+                fetch("Cuentas.json",{
+
+                    method:"POST",
+                    body: JSON.stringify(accountData)
+                })
+                plotAccount()
+
+            }
+            else if (!ownPropCheckIn){
+
+                alert("Usted no tiene este tipo de moneda")
+                
+            }
+            else if (ownPropCheckIn & accountData[i].dinero[inputCoin]<inputValue ){
+
+                alert("Usted no dispone de la cantidad estipulada")
+                
+            }
+
+            break
+        }
+
+    }
+}
 
 init()
