@@ -32,6 +32,14 @@ body{
     justify-content: center;
     align-items: center;
 }
+.logo img{
+    width: 22%;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+}
 .boton-conversor{
     width: 40%;
 }
