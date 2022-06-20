@@ -5,7 +5,7 @@ async function fetchJSON(url){
     /*
     fetchJSON() se encarga de obtener la informacion del JSON.
    */
-  const response = await fetch(url)
+  const response = await fetch(url);
   return response.json()
 }
 
@@ -35,7 +35,7 @@ async function precios(){
         precios() se encarga de generar las tarjetas con los valores
         de las criptos actuales
     */
-    let apiInfo = await fetchJSON("https://api.binance.com/api/v3/ticker/price%22")
+    let apiInfo = await fetchJSON("https://api.binance.com/api/v3/ticker/price")
     const element = document.getElementById("precios")
 
     let regex1 = /BTCUSDT/
@@ -59,7 +59,7 @@ async function precios(){
             let coin = apiInfo[i].symbol
             k += 1
 
-            body +=`<div class="card-fluid m-2 h-100"><div class="card body p-2 border-2 border-primary"><h4 class="AccountNumber" style="overflow-wrap: break-word">${coin}</h4><h5>${value}</h5></div></div>`
+            body +=`<div class="card-fluid m-2"><div class="card body p-2 border-2 border-primary"><h4 class="AccountNumber" style="overflow-wrap: break-word">${coin}</h4><h5>${value} USD</h5></div></div>`
         }
 
         if (k==3){

@@ -23,19 +23,14 @@
             </div>
         </div>
 
-        <div class="row">
-            <div id="accountResume" class="col-12">
-            </div>
-        </div>
-
         <!--Conversion de monedas-->
         <div class="row">
-            <div class="d-flex align-items-center justify-content-center">
+            <div class="contenedor-conversor">
                 
                 <!--Moneda a ingresar-->
                 <div class="flex-fill border">
-                    <div class="d-flex justify-content-between">
-                        <div class="flex-fill">
+                    <div class="conversor">
+                        <div class="cantidad">
                             <label for="inputValue" class="form-label">Cantidad</label>
                             <input id="inputValue" type="number" class="form-control" placeholder="Value" onchange="conversion()">
                         </div>
@@ -52,15 +47,15 @@
                     </div>
                 </div>
                 <!--Icono-->
-                <div id="flipCoin" class="border">
+                <div id="flipCoin" class="flip">
 
-                    <button type="button" onclick="flipCoins()">&#8646</button>
+                    <button class="boton-conversor" type="button" onclick="flipCoins()">&#8646</button>
                 </div>
 
                 <!--Conversion-->
                 <div class="flex-fill border">
-                    <div class="d-flex justify-content-between">
-                        <div class="flex-fill">
+                    <div class="conversor">
+                        <div class="cantidad">
                             <label for="outputValue" class="form-label">Cantidad</label>
                             <input id="outputValue" type="number" class="form-control" placeholder="Value" readonly>
                         </div>
@@ -82,14 +77,14 @@
 
         <!--Accion de compra-->
         <div class="row">
-            <div class="col-12 border">
-                <button type="button" onclick="buy()">Comprar</button>
+            <div class="comprar">
+                <button class="comprar-boton" type="button" onclick="buy()">Comprar</button>
             </div>
         </div>
 
     <!--precios de divisas-->
         <div class="row">
-            <div id="precios" class="col-12 border">
+            <div id="precios" class="precios">
                 
             </div>
         </div>
