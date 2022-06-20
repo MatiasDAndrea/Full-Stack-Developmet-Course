@@ -29,32 +29,57 @@ async function init(){
     cardElement.innerHTML = cardBody
 }
 
-function asd(){
 
-    let endpoint = "https://api.binance.com/api/v3/ticker/price"
-    fetch(endpoint)
-        .then(el=>el.json())
-        .then(data=>plotValues(data))
-
-}
-
-
-function plotValues(data){
+async function precios(){
     
     /* 
-    plotValues(data) se encarga de modificar el codigo HTML
-    y plotear el valor de las criptomonedas mas relevantes.
+        precios() se encarga de generar las tarjetas con los valores
+        de las criptos actuales
     */
-   let body=""
-   let regex = /USDT\b/
+    let apiInfo = await fetchJSON("https://api.binance.com/api/v3/ticker/price")
 
-   data.forEach(el=>{
-        if (regex.test(el.symbol) & el.price >=10){
-            body += `<tr><td>${el.symbol}</td><td>${el.price}</td></tr>`
+    let regex1 = /BTCUSDT/
+    let regCheck1 = regex1.test(apiInfo[i].symbol)
+
+    let regex2 = /ETHUSDT/
+    let regCheck2 = regex2.test(apiInfo[i].symbol)
+
+    let regex3 = /BNBUSDT/
+    let regCheck3 = regex3.test(apiInfo[i].symbol)
+
+    for (let i=0;i<apiInfo.length;i++){
+
+        if (regCheck1 | regCheck2 | regCheck3){
+
+            let value = apiInfo[i].price
+            let coin = apiInfo[i].symbol
+
+            <div class="card-fluid m-2 h-100">
+            <div class="card body p-2 border-2 border-primary">
+                <h4 class="AccountNumber" style="overflow-wrap: break-word">Visa xxxx-2000</h4>
+                <h6>Tarjeta de Credito</h6>
+                <h6>Vencimiento __/__</h6><hr>
+                <ul>
+                    <li>8000,00 $</li>
+                    <li>9000,00 U$s</li>
+                </ul>
+            </div>
+            </div>
+
+
         }
-   })
-   
-   document.getElementById("CriptoValues").innerHTML = body
+
+    }
+
+    
+    
+
+
+
+
+
+    console.log(apiInfo)
+
 }
 
 
@@ -215,3 +240,4 @@ function buy(){
 }
 
 init()
+precios()
