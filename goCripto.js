@@ -35,7 +35,7 @@ async function precios(){
         precios() se encarga de generar las tarjetas con los valores
         de las criptos actuales
     */
-    let apiInfo = await fetchJSON("https://api.binance.com/api/v3/ticker/price%22")
+    let apiInfo = await fetchJSON("https://api.binance.com/api/v3/ticker/price")
     const element = document.getElementById("precios")
 
     let regex1 = /BTCUSDT/
