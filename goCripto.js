@@ -29,58 +29,47 @@ async function init(){
     cardElement.innerHTML = cardBody
 }
 
-
 async function precios(){
-    
+
     /* 
         precios() se encarga de generar las tarjetas con los valores
         de las criptos actuales
     */
-    let apiInfo = await fetchJSON("https://api.binance.com/api/v3/ticker/price")
+    let apiInfo = await fetchJSON("https://api.binance.com/api/v3/ticker/price%22")
+    const element = document.getElementById("precios")
 
     let regex1 = /BTCUSDT/
-    let regCheck1 = regex1.test(apiInfo[i].symbol)
-
     let regex2 = /ETHUSDT/
-    let regCheck2 = regex2.test(apiInfo[i].symbol)
-
     let regex3 = /BNBUSDT/
-    let regCheck3 = regex3.test(apiInfo[i].symbol)
+
+    let body = ""
+    let k = 0
 
     for (let i=0;i<apiInfo.length;i++){
 
+        let regCheck1 = regex1.test(apiInfo[i].symbol)
+        let regCheck2 = regex2.test(apiInfo[i].symbol)
+        let regCheck3 = regex3.test(apiInfo[i].symbol)
+
+
         if (regCheck1 | regCheck2 | regCheck3){
 
-            let value = apiInfo[i].price
+
+            let value = Number(apiInfo[i].price).toFixed(2)
             let coin = apiInfo[i].symbol
+            k += 1
 
-            <div class="card-fluid m-2 h-100">
-            <div class="card body p-2 border-2 border-primary">
-                <h4 class="AccountNumber" style="overflow-wrap: break-word">Visa xxxx-2000</h4>
-                <h6>Tarjeta de Credito</h6>
-                <h6>Vencimiento __/__</h6><hr>
-                <ul>
-                    <li>8000,00 $</li>
-                    <li>9000,00 U$s</li>
-                </ul>
-            </div>
-            </div>
-
-
+            body +=`<div class="card-fluid m-2 h-100"><div class="card body p-2 border-2 border-primary"><h4 class="AccountNumber" style="overflow-wrap: break-word">${coin}</h4><h5>${value}</h5></div></div>`
         }
 
+        if (k==3){
+
+            element.innerHTML = body
+            break
+        }
     }
-
-    
-    
-
-
-
-
-
-    console.log(apiInfo)
-
 }
+
 
 
 async function conversion(){
@@ -241,3 +230,5 @@ function buy(){
 
 init()
 precios()
+//define tiempo de refresco de 10 segundos//
+setInterval(precios,10000)
