@@ -29,33 +29,47 @@ async function init(){
     cardElement.innerHTML = cardBody
 }
 
-function asd(){
+async function precios(){
 
-    let endpoint = "https://api.binance.com/api/v3/ticker/price"
-    fetch(endpoint)
-        .then(el=>el.json())
-        .then(data=>plotValues(data))
-
-}
-
-
-function plotValues(data){
-    
     /* 
-    plotValues(data) se encarga de modificar el codigo HTML
-    y plotear el valor de las criptomonedas mas relevantes.
+        precios() se encarga de generar las tarjetas con los valores
+        de las criptos actuales
     */
-   let body=""
-   let regex = /USDT\b/
+    let apiInfo = await fetchJSON("https://api.binance.com/api/v3/ticker/price")
+    const element = document.getElementById("precios")
 
-   data.forEach(el=>{
-        if (regex.test(el.symbol) & el.price >=10){
-            body += `<tr><td>${el.symbol}</td><td>${el.price}</td></tr>`
+    let regex1 = /BTCUSDT/
+    let regex2 = /ETHUSDT/
+    let regex3 = /BNBUSDT/
+
+    let body = ""
+    let k = 0
+
+    for (let i=0;i<apiInfo.length;i++){
+
+        let regCheck1 = regex1.test(apiInfo[i].symbol)
+        let regCheck2 = regex2.test(apiInfo[i].symbol)
+        let regCheck3 = regex3.test(apiInfo[i].symbol)
+
+
+        if (regCheck1 | regCheck2 | regCheck3){
+
+
+            let value = Number(apiInfo[i].price).toFixed(2)
+            let coin = apiInfo[i].symbol
+            k += 1
+
+            body +=`<div class="card-fluid m-2 h-100"><div class="card body p-2 border-2 border-primary"><h4 class="AccountNumber" style="overflow-wrap: break-word">${coin}</h4><h5>${value}</h5></div></div>`
         }
-   })
-   
-   document.getElementById("CriptoValues").innerHTML = body
+
+        if (k==3){
+
+            element.innerHTML = body
+            break
+        }
+    }
 }
+
 
 
 async function conversion(){
@@ -215,3 +229,6 @@ function buy(){
 }
 
 init()
+precios()
+//define tiempo de refresco de 10 segundos//
+setInterval(precios,10000)
