@@ -5,5 +5,4 @@ Repositorio del grupo 7 para los Sprints del curso Full Stack Developer
 -Matias DAndrea
 -Jesus Colmenares
 -Thiago DUGE
--Juan Bautista Bravo
--Emir Zahir Zatta Miranda
+
