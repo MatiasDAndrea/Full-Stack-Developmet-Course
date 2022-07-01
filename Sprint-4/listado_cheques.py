@@ -1,14 +1,16 @@
 import sys
 import datetime
-sys.argv[1::] = ["text.txt","40134552","Pantalla","Emitido","pendiente","53"]
+sys.argv[1::] = ["text.txt","40134552","Pantalla","Emitido","53"]
 
-def search_check(lista, dni, types, status=False, date=False):
+def search_check(lista, dni, types, status, date):
 
     #search_check recibe una lista donde cada elemento es un reglon del archivo csv.
     #devuelve una lista con los cheques filtrados.
 
     #Genero mi variable de output
     output_list = []
+    status = False if status=="" else status
+    date = False if date=="" else date
 
     for x in lista:
 
@@ -26,7 +28,7 @@ def checkinput():
     #La funcion devuelve True o False dependiendo en base del cumplimiento de condiciones.
 
     while len(sys.argv)<7:
-        sys.argv.append(False)
+        sys.argv.append("")
 
     csvname, dni, output, type, status, date = sys.argv[1::]
 
@@ -34,7 +36,7 @@ def checkinput():
     check_dni = str(dni).isnumeric()
     check_output = output.upper() in ["PANTALLA", "SALIDA"]
     check_type = type.upper() in ["EMITIDO", "DEPOSITADO"]
-    check_status = status.upper() in ["PENDIENTE", "APROBADO", "RECHAZADO"]
+    check_status = status.upper() in ["PENDIENTE", "APROBADO", "RECHAZADO",""]
     check_date = True
 
     return all([check_csv, check_dni, check_output, check_type, check_status, check_date])
@@ -54,7 +56,7 @@ def init():
         
         #Filtrado de la lista
         lista = archivo.readlines()
-        cheques = search_check(lista, dni, type)
+        cheques = search_check(lista, dni, type, status, date)
 
         #Genero Output de la funcion.
         
