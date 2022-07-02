@@ -26,6 +26,7 @@ def search_check(lista, diccionario):
 
     for x in lista:
 
+        
         x = x.replace("\n","").split(",")
         fecha_lista  = float(x[6])
         dni_lista    = x[8]
@@ -58,7 +59,7 @@ def checkinput():
     argv = sys.argv
     opts, args = getopt.getopt(argv[1:], "c:d:s:t:e:f:a")
     diccionario = {}
-  
+
     for letter, value in opts:
 
         if letter == "-c":
@@ -81,7 +82,7 @@ def checkinput():
             inicio,fin = value.split(":")
             diccionario["fecha_desde"] = datetime.strptime(inicio, '%d-%m-%Y').timestamp()
             diccionario["fecha_hasta"] = datetime.strptime(fin, '%d-%m-%Y').timestamp()
-        
+    
     check_csv    = re.search(r".csv\b",diccionario.get("csv_name",""))
     check_dni    = diccionario.get("dni","").isnumeric()
     check_output = diccionario.get("salida","") in ["PANTALLA", "SALIDA"]
@@ -122,8 +123,21 @@ def init():
         
         #Filtrado de la lista
         lista = archivo.readlines()
+
+        #Funcion de checkeo del csv
+        #Borrar las lineas que tienen algun defecto
+
         cheques_filtrados = search_check(lista, diccionario)
 
+        #Para la lista filtrada, tenemos que filtrar por dos variables. Cuenta y por numero de cheque.
+        #Funcion para punto 3
+
+        #diccionario["salida"] Pantalla / CSV
+        # si es pantalla print(cheques)
+        # si es csv open("nombre que sea","w")
+        # meten los cheques filtrados al csv que crearon
+
+        
         print(cheques_filtrados)
 
         #Genero Output de la funcion.
