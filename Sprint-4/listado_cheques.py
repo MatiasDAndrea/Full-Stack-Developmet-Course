@@ -18,6 +18,7 @@ def search_check(lista, diccionario):
     #   cheques_filtrados: Lista conteniendo cada uno de los cheques filtrados.
     #--------------------------------------------------------------------------
 
+    cheques_dni = []
     cheques_filtrados = []
     dni = diccionario["dni"]
     tipo = diccionario["tipo"]
@@ -42,7 +43,11 @@ def search_check(lista, diccionario):
 
             cheques_filtrados.append(x)
 
-    return cheques_filtrados
+        if filtro_dni:
+
+            cheques_dni.append(x)
+
+    return cheques_filtrados, cheques_repetidos(cheques_dni)
 
 
 def checkinput():
@@ -126,7 +131,6 @@ def cheques_repetidos(lista):
     #numero de cuenta origen (3) y numero de cheque (0)
     for x in lista:
 
-        x = x.replace("\n","").split(",")
         # x[3] Cuenta Origen
         # x[0] Numero de cheque
         order_lista.append([x[3],x[0]])
@@ -177,7 +181,7 @@ def crear_csv(diccionario,lista):
     for x in lista:
 
         linea = x[3]+","+",".join(x[5:8])+"\n"
-        archivo.writelines(linea)
+        archivo.write(linea)
     
     archivo.close()
 
@@ -202,11 +206,10 @@ def init():
         
         #Filtrado de la lista
         lista = archivo.readlines()
-        check = cheques_repetidos(lista)
+        cheques_filtrados, check = search_check(lista, diccionario)
 
         if (check):
 
-            cheques_filtrados = search_check(lista, diccionario)
             if diccionario["salida"] == "PANTALLA":
 
                 imprimir_valores(cheques_filtrados)
