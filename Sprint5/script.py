@@ -14,8 +14,9 @@ class Cliente():
             return (f"El cliente es")
             
 class Gold (Cliente):
-    def __init__(self, id, name, sName, dni):
-            Cliente.__init__(self,id,name,sName, dni,"Gold")
+    def __init__(self, id, name, sName, dni,tipe):
+            Cliente.__init__(self,id,name,sName, dni)
+            self.tipe= "GOLD"
             self.creditCard = 1
             self.dolarAccount= True
             self.debit= 20000
@@ -24,8 +25,9 @@ class Gold (Cliente):
             self.maxTransf= 500000
 
 class Classic(Cliente):
-    def __init__ (self,id,name,sName,dni)
-        Cliente.__init__(self,id,name,sName,dni,"Classic")
+    def __init__ (self,id,name,sName,dni,tipe):
+        Cliente.__init__(self,id,name,sName,dni)
+        self.tipe="CLASSIC"
         self.creditCard = 0
         self.dolarAccount= False
         self.debit= 10000
@@ -35,8 +37,8 @@ class Classic(Cliente):
 
 class Black (Cliente):
     def __init__(self, id, name, sName, dni):
-        self.tipe="Gold"
-        Cliente.__init__(self,id,name,sName, dni,"Black")
+        Cliente.__init__(self,id,name,sName, dni)
+        self.tipe="BLACK"
         self.creditCard = 1
         self.dolarAccount= True
         self.debit= 100000
@@ -44,11 +46,3 @@ class Black (Cliente):
         self.comission= 0
         self.maxTransf= 0
 
-class Transaction ():
-    def __init__ (self):
-    def RETIRO_EFECTIVO_CAJERO_AUTOMATICO():
-    def ALTA_TARJETA_CREDITO():
-    def ALTA_CHEQUERA():
-    def COMPRAR_DOLAR():
-    def TRANSFERENCIA_ENVIADA():
-    def TRANSFERENCIA_RECIBIDA():
