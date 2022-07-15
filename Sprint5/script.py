@@ -1,3 +1,5 @@
+import transactions
+
 class Cliente():
     def __init__(self,id,name,sName,dni,tipe):
         id=self.id
@@ -5,14 +7,11 @@ class Cliente():
         sName=self.sName
         dni=self.dni
         self.debitCard = 1
-
-        if tipe == None:
-            self.tipe = 'Classic'
-        else:
-            self.tipe = tipe
+        tipe = tipe if tipe != None else 'Classic'
     def __str__(self):
-            return (f"El cliente es")
-            
+            return (f"El cliente es" )
+        transactions.Modules(self)
+
 class Gold (Cliente):
     def __init__(self, id, name, sName, dni):
             Cliente.__init__(self,id,name,sName, dni,"Gold")
@@ -23,7 +22,7 @@ class Gold (Cliente):
             self.comission= 0.5
             self.maxTransf= 500000
 
-class Classic(Cliente):
+class Classic (Cliente):
     def __init__ (self,id,name,sName,dni)
         Cliente.__init__(self,id,name,sName,dni,"Classic")
         self.creditCard = 0
@@ -43,12 +42,3 @@ class Black (Cliente):
         self.cheq= 1
         self.comission= 0
         self.maxTransf= 0
-
-class Transaction ():
-    def __init__ (self):
-    def RETIRO_EFECTIVO_CAJERO_AUTOMATICO():
-    def ALTA_TARJETA_CREDITO():
-    def ALTA_CHEQUERA():
-    def COMPRAR_DOLAR():
-    def TRANSFERENCIA_ENVIADA():
-    def TRANSFERENCIA_RECIBIDA():
