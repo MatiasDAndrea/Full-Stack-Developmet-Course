@@ -1,5 +1,7 @@
+from abc import abstractclassmethod
 import transactions
 
+@abstractclassmethod
 class Cliente():
     def __init__(self,id,name,sName,dni,tipe):
         id=self.id
@@ -13,8 +15,9 @@ class Cliente():
         transactions.Modules(self)
 
 class Gold (Cliente):
-    def __init__(self, id, name, sName, dni):
-            Cliente.__init__(self,id,name,sName, dni,"Gold")
+    def __init__(self, id, name, sName, dni,tipe):
+            Cliente.__init__(self,id,name,sName, dni)
+            self.tipe= "GOLD"
             self.creditCard = 1
             self.dolarAccount= True
             self.debit= 20000
@@ -22,9 +25,10 @@ class Gold (Cliente):
             self.comission= 0.5
             self.maxTransf= 500000
 
-class Classic (Cliente):
-    def __init__ (self,id,name,sName,dni)
-        Cliente.__init__(self,id,name,sName,dni,"Classic")
+class Classic(Cliente):
+    def __init__ (self,id,name,sName,dni,tipe):
+        Cliente.__init__(self,id,name,sName,dni)
+        self.tipe="CLASSIC"
         self.creditCard = 0
         self.dolarAccount= False
         self.debit= 10000
@@ -34,11 +38,12 @@ class Classic (Cliente):
 
 class Black (Cliente):
     def __init__(self, id, name, sName, dni):
-        self.tipe="Gold"
-        Cliente.__init__(self,id,name,sName, dni,"Black")
+        Cliente.__init__(self,id,name,sName, dni)
+        self.tipe="BLACK"
         self.creditCard = 1
         self.dolarAccount= True
         self.debit= 100000
         self.cheq= 1
         self.comission= 0
         self.maxTransf= 0
+
