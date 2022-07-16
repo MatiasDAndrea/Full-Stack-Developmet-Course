@@ -1,5 +1,5 @@
 from abc import abstractclassmethod
-import transactions
+import Cuenta
 
 @abstractclassmethod
 class Cliente():
@@ -10,9 +10,13 @@ class Cliente():
         dni=self.dni
         self.debitCard = 1
         tipe = tipe if tipe != None else 'Classic'
-    def __str__(self):
-            return (f"El cliente es" )
-        transactions.Modules(self)
+        self.Cuenta = Cuenta.Cuenta.__init__()
+    def puede_crear_chequera():
+        return bool
+    def puede_crear_tarjeta_credito():
+        return bool
+    def puede_comprar_dolar():
+        return bool
 
 class Gold (Cliente):
     def __init__(self, id, name, sName, dni,tipe):

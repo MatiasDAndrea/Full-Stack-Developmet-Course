@@ -1,4 +1,5 @@
-class Transaction ():
+import Cliente
+class Transaction (Cliente.Cliente, evento):
     def __init__ (self):
     def RETIRO_EFECTIVO_CAJERO_AUTOMATICO():
     def ALTA_TARJETA_CREDITO():
