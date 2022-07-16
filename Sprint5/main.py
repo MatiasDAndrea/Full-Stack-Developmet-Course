@@ -54,5 +54,5 @@ def __init__():
     except (IndexError, FileNotFoundError):
         print("Error de Ingreso")
 
-__init__()3
+__init__()
 
