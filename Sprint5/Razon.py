@@ -1,5 +1,17 @@
+######################################################################
+# Modulo : Razon.py
+#
+# Clase: Razon.
+#   Metodos:
+#       __init__()
+#
+#       resolver()
+#           Inputs: cliente, evento     
+#               cliente: Objeto creado de la clase Cliente
+#               evento: array que contiene los datos de una transaccion.
+#
+########################################################################
 
-#[Cliente,]
 class Razon:
 
     def __init__(self,tipo):
@@ -12,8 +24,9 @@ class Razon:
             dinero_actual = evento["saldoEnCuenta"]
             dinero_retiro = evento["monto"]
             cupo_diario   = evento["cupoDiarioRestante"]
+            descubrimiento = cliente.cuenta.total_descubierto
 
-            if dinero_actual < dinero_retiro:
+            if dinero_actual+descubrimiento < dinero_retiro:
                 return "Usted no posee suficiente dinero!"
 
             elif dinero_retiro > cupo_diario:
@@ -57,39 +70,13 @@ class Razon:
             transferencia = evento["monto"]*(1+cliente.cuenta.comision_por_transferencia)
 
             if transferencia > monto_actual:
-                return "Usted no dispone del monto a transferir"
+                return f"Usted no dispone de ${transferencia} para transferir"
 
         elif self.tipo == "TRANSFERENCIA_RECIBIDA":
 
             monto  = evento["monto"]
             limite = cliente.cuenta.total_transferencia_limite
             
+            if monto > limite:
+                return f"Usted no puede recibir transferencias mayores a ${limite}"
             
-
-
-
-
-
-
-
-
-        
-
-        
-
-    
-
-        
-
-            
-
-
-
-#RETIRO_EFECTIVO_CAJERO_AUTOMATICO: check
-#ALTA_TARJETA_CREDITO: Se solicito una nueva tarjeta de crédito
-#ALTA_CHEQUERA: Se solicito una nueva chequera
-#COMPRAR_DOLAR: Se solicito realizar la transacción para comprar
-#TRANSFERENCIA_ENVIADA: Solo se puede en pesos y lo que tenga en caja
-#TRANSFERENCIA_RECIBIDA:
-
-

@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-#class Cuenta():
-    #def __init__(self):
-    #def __LimiteDiario__():
-=======
 class Cuenta():
     def __init__(self,tipo):
         if(tipo == 'Classic'):
@@ -38,9 +33,8 @@ class Cuenta():
             self.limite_extraccion_diario= 100000
             self.total_chequera = 0
             self.total_chequera_limite = 2
-            self.total_transferencia_limite = True
+            self.total_transferencia_limite = 100000000000 # Hay que ponerle inf con numpy
             self.monto_pesos = 0
             self.monto_dolares = 0
         
->>>>>>> 4931365f2686738f745c5ae9df9d0c5854220735
 
