@@ -1,7 +1,6 @@
-from abc import abstractclassmethod
 import Cuenta
 
-@abstractclassmethod
+
 class Cliente():
     def __init__(self,id,name,sName,dni,tipe):
         id=self.id
@@ -19,7 +18,7 @@ class Cliente():
         return bool
 
 class Gold (Cliente):
-    def __init__(self, id, name, sName, dni,tipe):
+    def __init__(self, id, name, sName, dni):
             Cliente.__init__(self,id,name,sName, dni)
             self.tipe= "GOLD"
             self.creditCard = 1
