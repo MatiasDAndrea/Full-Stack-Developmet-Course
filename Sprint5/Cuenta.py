@@ -1,6 +1,18 @@
+#########################################################
+#   Modulo: Cuenta.py
+#       Clases:
+#           -Cuenta:
+#               Inicializa los valores para cada usuario
+#               segun el tipo de cuenta que tenga.
+#       
+#       Funciones:
+#           Empty
+#
+##########################################################
+
 class Cuenta():
     def __init__(self,tipo):
-        if(tipo == 'Classic'):
+        if tipo == 'CLASSIC':
             self.total_tarjeta_debito = 1
             self.total_descubierto = 0
             self.total_tarjeta_credito = 0
@@ -12,7 +24,8 @@ class Cuenta():
             self.total_transferencia_limite = 150000
             self.monto_pesos = 0
             self.monto_dolares = 0
-        if(tipo == 'Gold'):
+
+        elif tipo == 'GOLD':
             self.total_tarjeta_debito = 1
             self.total_descubierto = 10000
             self.total_tarjeta_credito = 0
@@ -24,7 +37,8 @@ class Cuenta():
             self.total_transferencia_limite = 500000
             self.monto_pesos = 0
             self.monto_dolares = 0
-        if(tipo == 'Black'):
+
+        elif tipo == 'BLACK':
             self.total_tarjeta_debito = 1
             self.total_descubierto = 10000
             self.total_tarjeta_credito = 0

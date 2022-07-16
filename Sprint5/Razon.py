@@ -9,13 +9,17 @@
 #           Inputs: cliente, evento     
 #               cliente: Objeto creado de la clase Cliente
 #               evento: array que contiene los datos de una transaccion.
+#           Ouput: Justifica la razon por la que fue rechazada
+#                  una operacion.
 #
 ########################################################################
 
 class Razon:
 
+
     def __init__(self,tipo):
-        self.tipo = tipo  ## Retiro, alta chequera etc 
+        self.tipo = tipo
+
 
     def resolver(self,cliente,evento):
 
