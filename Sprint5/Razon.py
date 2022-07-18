@@ -22,13 +22,27 @@ class Razon:
 
 
     def resolver(self,cliente,evento):
+        
+        dinero_actual   = evento["saldoEnCuenta"]
+        dinero_retiro   = evento["monto"]
+        cupo_diario     = evento["cupoDiarioRestante"]
+        tarjetas_actual = evento["totalTarjetasDeCreditoActualmente"]
+        chequera_actual = evento["totalChequerasActualmente"]
+        
+        descubrimiento  = cliente.cuenta.total_descubierto
+        tarjetas_limite = cliente.cuenta.total_tarjeta_credito
+        chequera_limite = cliente.cuenta.total_chequera_limite
+        comsion         = cliente.cuenta.comision_por_transferencia
+        limite          = cliente.cuenta.total_transferencia_limite
+
+        dolar_bool          = cliente.puede_comprar_dolar
+        crear_tarjeta_bool  = cliente.puede_crear_tarjeta_credito
+        crear_chequera_bool = cliente.puede_crear_chequera
+
+
 
         if self.tipo == "RETIRO_EFECTIVO_CAJERO_AUTOMATICO":
 
-            dinero_actual = evento["saldoEnCuenta"]
-            dinero_retiro = evento["monto"]
-            cupo_diario   = evento["cupoDiarioRestante"]
-            descubrimiento = cliente.cuenta.total_descubierto
 
             if dinero_actual+descubrimiento < dinero_retiro:
                 return "Usted no posee suficiente dinero!"
@@ -36,51 +50,42 @@ class Razon:
             elif dinero_retiro > cupo_diario:
                 return f"El cupo disponible es de: {cupo_diario}!"
 
-        elif self.tipo == "ALTA_TARJETA_CREDITO":
 
-            tarjetas_actual  = evento["totalTarjetasDeCreditoActualmente"]
-            tarjetas_limite = cliente.cuenta.total_tarjeta_credito
+        elif self.tipo == "ALTA_TARJETA_CREDITO":
 
             if tarjetas_actual >= tarjetas_limite:
                 return "Usted ha superado el numero maximo de tarjetas de credito disponibles!"
 
-        elif self.tipo == "ALTA_CHEQUERA":
 
-            chequera_limite  = cliente.cuenta.total_chequera_limite
-            chequera_actual  = evento["totalChequerasActualmente"]
+        elif self.tipo == "ALTA_CHEQUERA":
 
             if chequera_actual >= chequera_limite:
                 return "Usted ha superado el numero maximo de chequeras disponibles!"
             
-        elif self.tipo == "COMPRAR_DOLAR":
 
-            dolar_actual = evento["saldoEnCuenta"]
-            dolar_retiro = evento["monto"]
-            cupo_diario  = evento["cupoDiarioRestante"]
-            dolar_bool   = cliente.puede_comprar_dolar
+        elif self.tipo == "COMPRAR_DOLAR":
 
             if not dolar_bool:
                 return "Usted no Posee una cuenta en dolares"
 
-            elif dolar_retiro > cupo_diario:
+            elif dinero_retiro > cupo_diario:
                 return "El monto supera el cupo diario permitido"
 
-            elif dolar_retiro > dolar_actual:
+            elif dinero_retiro > dolar_actual:
                 return "Usted no dispone de ese monto a retirar"
+
 
         elif self.tipo == "TRANSFERENCIA_ENVIADA":
 
             monto_actual  = evento["saldoEnCuenta"]
-            transferencia = evento["monto"]*(1+cliente.cuenta.comision_por_transferencia)
+            transferencia = transferencia*(1+comsion)
 
             if transferencia > monto_actual:
                 return f"Usted no dispone de ${transferencia} para transferir"
 
-        elif self.tipo == "TRANSFERENCIA_RECIBIDA":
 
-            monto  = evento["monto"]
-            limite = cliente.cuenta.total_transferencia_limite
-            
+        elif self.tipo == "TRANSFERENCIA_RECIBIDA":
+          
             if monto > limite:
                 return f"Usted no puede recibir transferencias mayores a ${limite}"
             

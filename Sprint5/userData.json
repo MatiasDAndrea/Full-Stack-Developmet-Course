@@ -14,7 +14,7 @@
 	"transacciones": [{
 			"estado": "ACEPTADA",
 			"tipo": "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
-			"cuentaNumero": 190,
+			"cuentaNumero": 2,
 			"cupoDiarioRestante": 9000,
 			"cantidadExtraccionesHechas": 1,
 			"monto": 1000,

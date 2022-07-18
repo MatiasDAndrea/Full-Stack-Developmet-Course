@@ -1,8 +1,24 @@
+##########################################################
+#   Modulo: Seguridad.py
+#
+#   Clases:
+#        -Seguridad
+#           Metodos:
+#               check_JSON(data):
+#                   Checkea la validez del JSON ingresado
+#                   Output: Bool
+#
+#               check_transacciones(transaccion):
+#                   Checkea la validez de la transaccion
+#                   Output: Bool
+#
+############################################################
 import json
 
 class Seguridad:
 
     def check_JSON(self, data):
+
 
         ##########################################################
         #Checkeo que todos los campos buscados en el JSON existan.
@@ -51,8 +67,8 @@ class Seguridad:
         #####################################
         #Fin Check, JSON es valido.
         return True
+            
 
-    
     def check_transacciones(self, transaccion):
 
 
@@ -105,7 +121,7 @@ class Seguridad:
 
         for key in transaccion:
 
-            check = isinstance(data[key],data_type[key])
+            check = isinstance(transaccion[key],data_type[key])
             if not check:
                 return False
 
@@ -129,28 +145,19 @@ class Seguridad:
 
         #############################################
         #Checkeo valores de la transaccion ingresada.
-        cuentaNumero
-        cupoDiarioRestante
-        cantidadExtraccionesHechas
-        monto
-        numero
-        saldoEnCuenta
-        totalTarjetasDeCreditoActualmente
-        totalChequerasActualmente
+        variables = [
+            cuentaNumero,
+            cupoDiarioRestante,
+            cantidadExtraccionesHechas,
+            monto,
+            numero,
+            totalTarjetasDeCreditoActualmente,
+            totalChequerasActualmente
+        ]
+        variables_filtradas = list(filter(lambda x: x>=0,variables))
+        if len(variables) != len(variables_filtradas):
+            return False
 
         #####################################
         #Fin Check, la transaccion es valida.
         return True
-
-
-
-
-    
-            
-
-f = open("userData.json")
-data = json.load(f)["transacciones"][0]
-#data = json.load(f)
-seguridad = Seguridad()
-
-print(seguridad.check_transacciones(data))
