@@ -8,10 +8,12 @@
 
 import json
 import Cliente
+from html import HTML
 from Cuenta import Cuenta
 from Razon import Razon
 from Seguridad import Seguridad
 import sys
+
 
 def __init__():
 
@@ -58,14 +60,15 @@ def __init__():
             }
             reporte["Transaccion"].append(reporte_transaccion)
             
-        print(reporte)
+        crear = HTML()
+        crear.crear_html(reporte)
         f.close()
 
     except (IndexError, FileNotFoundError):
         print("Error")
     
-    except:
-        print("Error JSON")
+    #except:
+        #print("Error JSON")
 
 __init__()
 
