@@ -67,8 +67,8 @@ def __init__():
     except (IndexError, FileNotFoundError):
         print("Error")
     
-    #except:
-        #print("Error JSON")
+    except:
+        print("Error JSON")
 
 __init__()
 
