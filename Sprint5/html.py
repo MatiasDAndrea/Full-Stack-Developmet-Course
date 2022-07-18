@@ -12,8 +12,7 @@ class HTML:
         transaccion=reporte.get("Transaccion")
         html_trasaccion=""
         for x in transaccion:
-            html_trasaccion+=f
-            """
+            html_trasaccion+=f"""
             <h1>Transacciones</h1>
             <h3>{x["fecha"]}</h3>
             <h3>{x["Tipo Operacion"]}</h3>

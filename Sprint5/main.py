@@ -59,7 +59,7 @@ def __init__():
                 "Razon": razon.resolver(cliente,x)
             }
             reporte["Transaccion"].append(reporte_transaccion)
-            
+
         crear = HTML()
         crear.crear_html(reporte)
         f.close()
@@ -67,8 +67,8 @@ def __init__():
     except (IndexError, FileNotFoundError):
         print("Error")
     
-    except:
-        print("Error JSON")
+    #except:
+        #print("Error JSON")
 
 __init__()
 
