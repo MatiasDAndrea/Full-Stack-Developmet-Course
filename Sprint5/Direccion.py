@@ -12,17 +12,9 @@
 ###########################################
 
 class Direccion():
-    def __init__(self, dir):
-        
-        
-        self.calle = dir.get("calle","")
+    def __init__(self, calle, numero, ciudad, provincia, pais):
+        self.calle = calle
         self.numero = numero
         self.ciudad = ciudad
         self.provincia = provincia
         self.pais = pais
-
-        # Si algun elemento "" error, hay algo mal
-        # checkear que todo sea tipo str
-        
-
-

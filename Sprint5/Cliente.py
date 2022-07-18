@@ -23,7 +23,7 @@ class Cliente():
         self.nombre = nombre
         self.apellido = apellido
         self.dni = dni
-        self.direccion = Direccion(dir)
+        self.direccion = Direccion(dir["calle"], dir["numero"], dir["ciudad"], dir["provincia"], dir["pais"])
         self.cuenta = Cuenta(tipo)
         self.puede_crear_chequera =  False
         self.puede_crear_tarjeta_credito = False
