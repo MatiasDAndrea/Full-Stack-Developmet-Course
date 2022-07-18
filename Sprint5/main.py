@@ -48,11 +48,16 @@ def __init__():
                 "Razon": razon.resolver(cliente,x)
             }
             reporte["Transaccion"].append(reporte_transaccion)
-
+        
+        print(reporte)
+    
         f.close()
 
     except (IndexError, FileNotFoundError):
-        print("Error de Ingreso")
+        print("Error")
+    
+    except:
+        print("Error")
 
 __init__()
 
