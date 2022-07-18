@@ -65,10 +65,10 @@ def __init__():
         f.close()
 
     except (IndexError, FileNotFoundError):
-        print("Error")
+        print("Error en llamado por consola!")
     
     except Exception:
-        print("Error JSON")
+        print("Error! JSON mal formateado")
 
 __init__()
 
