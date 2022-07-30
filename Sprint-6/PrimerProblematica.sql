@@ -90,14 +90,14 @@ CREATE TABLE IF NOT EXISTS Tarjetas(
     Tarjeta_Fecha_Otorgamiento TEXT NOT NULL,
     Tarjeta_Fecha_Expiracion TEXT NOT NULL,
     Tarjeta_tipo TEXT NOT NULL CHECK (Tarjeta_tipo in ("CREDITO","DEBITO")),
-    Tarjeta_code INTEGER NOT NULL,
-    Tarjeta_customerID INTEGER NOT NULL,
+    TTarjetas_id INTEGER NOT NULL,
+    customer_id INTEGER NOT NULL,
 
-    FOREIGN KEY (Tarjeta_code) REFERENCES MarcasTarjetas(TTarjetas_id)
+    FOREIGN KEY (TTarjetas_id) REFERENCES MarcasTarjetas(TTarjetas_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
 
-    FOREIGN KEY (Tarjeta_customerID) REFERENCES cliente(customer_id)
+    FOREIGN KEY (customer_id) REFERENCES cliente(customer_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
@@ -109,8 +109,8 @@ INSERT INTO Tarjetas(
     Tarjeta_Fecha_Otorgamiento,
     Tarjeta_Fecha_Expiracion,
     Tarjeta_tipo,
-    Tarjeta_code,
-    Tarjeta_customerID
+    TTarjetas_id,
+    customer_id
 )
 VALUES 
     ("1234116",1,"ASD","ASD","CREDITO",20,2546)
