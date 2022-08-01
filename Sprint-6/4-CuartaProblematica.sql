@@ -40,3 +40,60 @@ FROM cliente C
     INNER JOIN prestamo P on P.customer_id = C.customer_id
 GROUP BY NombreSucursal
 ORDER BY PromedioPrestamos;
+
+-- 5
+DROP TABLE IF EXISTS auditoria_cuenta;
+CREATE TABLE IF NOT EXISTS auditoria_cuenta(
+    old_id INTEGER NOT NULL,
+    new_id INTEGER NOT NULL,
+    old_balance INTEGER NOT NULL,
+    new_balance INTEGER NOT NULL,
+    old_iban TEXT NOT NULL,
+    new_iban TEXT NOT NULL,
+    old_type INTEGER NOT NULL,
+    new_type INTEGER NOT NULL,
+    user_action TEXT NOT NULL,
+    created_at date NOT NULL
+);
+
+
+CREATE TRIGGER IF NOT EXISTS CHANGE 
+    AFTER UPDATE ON cuenta
+    BEGIN
+        
+
+
+        case 
+            when new.customer_id != old.customer_id then
+                    INSERT INTO auditoria_cuenta(
+                        old_id,
+                        new_id,
+                        old_balance,
+                        new_balance,
+                        old_iban,
+                        new_iban,
+                        old_type,
+                        new_type,
+                        user_action,
+                        created_at
+                    )
+                    VALUES
+                        (
+                        old.customer_id,
+                        new.customer_id,
+                        old.balance,
+                        new.balance,
+                        old.iban,
+                        new.iban,
+                        old.TCuenta_id,
+                        new.TCuenta_id,
+                        "Cambio de ID",
+                        date()
+                        )
+                    
+    END
+END;
+
+UPDATE cuenta
+set customer_id = 500 where customer_id = 202;
+set balance = 
