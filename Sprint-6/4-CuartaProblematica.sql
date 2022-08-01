@@ -42,7 +42,7 @@ GROUP BY NombreSucursal
 ORDER BY PromedioPrestamos;
 
 -- 5
---DROP TABLE IF EXISTS auditoria_cuenta;
+DROP TABLE IF EXISTS auditoria_cuenta;
 CREATE TABLE IF NOT EXISTS auditoria_cuenta(
     old_id INTEGER NOT NULL,
     new_id INTEGER NOT NULL,
@@ -56,10 +56,11 @@ CREATE TABLE IF NOT EXISTS auditoria_cuenta(
     created_at date NOT NULL
 );
 
-CREATE TRIGGER IF NOT EXISTS CHANGE 
+-- Trigger id --
+CREATE TRIGGER IF NOT EXISTS CHANGE1
     AFTER UPDATE 
     ON cuenta
-    new.customer_id != old.customer_id 
+    WHEN OLD.customer_id <> NEW.customer_id
 BEGIN
     INSERT INTO auditoria_cuenta(
         old_id,
@@ -82,16 +83,181 @@ BEGIN
         new.iban,
         old.TCuenta_id,
         new.TCuenta_id,
-        "Cambio de ID",
+        "Modificacion del ID",
         date()
-    )              
+    );
 END;
 
+-- Trigger Balance --
+CREATE TRIGGER IF NOT EXISTS CHANGE2
+    AFTER UPDATE 
+    ON cuenta
+    WHEN OLD.balance <> NEW.balance
+BEGIN
+    INSERT INTO auditoria_cuenta(
+        old_id,
+        new_id,
+        old_balance,
+        new_balance,
+        old_iban,
+        new_iban,
+        old_type,
+        new_type,
+        user_action,
+        created_at
+    )
+    VALUES(
+        old.customer_id,
+        new.customer_id,
+        old.balance,
+        new.balance,
+        old.iban,
+        new.iban,
+        old.TCuenta_id,
+        new.TCuenta_id,
+        "Modificacion del Balance",
+        date()
+    );
+END;
+
+-- Trigger IBAN --
+CREATE TRIGGER IF NOT EXISTS CHANGE3
+    AFTER UPDATE 
+    ON cuenta
+    WHEN OLD.iban <> NEW.iban
+BEGIN
+    INSERT INTO auditoria_cuenta(
+        old_id,
+        new_id,
+        old_balance,
+        new_balance,
+        old_iban,
+        new_iban,
+        old_type,
+        new_type,
+        user_action,
+        created_at
+    )
+    VALUES(
+        old.customer_id,
+        new.customer_id,
+        old.balance,
+        new.balance,
+        old.iban,
+        new.iban,
+        old.TCuenta_id,
+        new.TCuenta_id,
+        "Modificacion del IBAN",
+        date()
+    );
+END;
+
+-- Trigger Tipo Cuento --
+CREATE TRIGGER IF NOT EXISTS CHANGE4
+    AFTER UPDATE 
+    ON cuenta
+    WHEN OLD.TCuenta_id <> NEW.TCuenta_id
+BEGIN
+    INSERT INTO auditoria_cuenta(
+        old_id,
+        new_id,
+        old_balance,
+        new_balance,
+        old_iban,
+        new_iban,
+        old_type,
+        new_type,
+        user_action,
+        created_at
+    )
+    VALUES(
+        old.customer_id,
+        new.customer_id,
+        old.balance,
+        new.balance,
+        old.iban,
+        new.iban,
+        old.TCuenta_id,
+        new.TCuenta_id,
+        "Modificacion de Tipo de Cuenta",
+        date()
+    );
+END;
+
+-- Update de Datos en Cuenta --
 UPDATE cuenta
-set customer_id = 600 where account_id = 1;
-
-select * from cuenta;
-
-select * from auditoria_cuenta;
+SET balance = balance-100
+WHERE account_id in (10,11,12,13,14);
 
 
+-- Creacion de Indices ----------------------------------------
+DROP INDEX IF EXISTS index_dni;
+CREATE INDEX index_dni
+ON  cliente(customer_DNI);
+
+-- Tabla Movimientos ------------------------------------------
+DROP TABLE IF EXISTS Movimientos;
+
+-- Creacion de Tabla --
+CREATE TABLE IF NOT EXISTS Movimientos(
+    Cuenta_id INTEGER PRIMARY KEY,
+    NumCuenta INTEGER NOT NULL,
+    Monto INTEGER NOT NULL,
+    Tipo_Operacion TEXT NOT NULL,
+    HORA TEXT NOT NULL
+);
+
+-- Transaccion --------------------------------------------------
+
+-- Trigger para Transacciones --
+DROP TRIGGER IF EXISTS Trans;
+CREATE TRIGGER IF NOT EXISTS Trans
+    AFTER UPDATE 
+    ON cuenta
+    WHEN old.balance >= new.balance
+BEGIN
+    INSERT INTO Movimientos(
+    NumCuenta,
+    Monto,
+    Tipo_Operacion,
+    HORA
+    )
+    VALUES
+        (
+        new.account_id,
+        old.balance - new.balance,
+        "Transferencia",
+        TIME()
+    );
+END;
+
+-- Trigger para Depositos --
+DROP TRIGGER IF EXISTS Depo;
+CREATE TRIGGER IF NOT EXISTS Depo
+    AFTER UPDATE 
+    ON cuenta
+    WHEN old.balance <= new.balance
+BEGIN
+    INSERT INTO Movimientos(
+    NumCuenta,
+    Monto,
+    Tipo_Operacion,
+    HORA
+    )
+    VALUES
+        (
+        new.account_id,
+        new.balance - old.balance,
+        "Deposito",
+        TIME()
+    );
+END;
+
+BEGIN TRANSACTION;
+    UPDATE cuenta
+        SET balance = balance-1000 WHERE account_id = 200;
+        
+    UPDATE cuenta 
+        set balance = balance+1000 WHERE account_id = 400;
+
+COMMIT;
