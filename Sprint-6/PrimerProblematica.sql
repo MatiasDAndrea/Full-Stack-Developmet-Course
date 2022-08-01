@@ -738,15 +738,15 @@ DROP TABLE IF EXISTS Direcciones;
 
 CREATE TABLE IF NOT EXISTS Direcciones(
     Direccion_id INTEGER PRIMARY KEY,
+    Codigo INTEGER NOT NULL,
     Calle TEXT NOT NULL,
     Numero TEXT NOT NULL,
     Ciudad TEXT NOT NULL,
-    Provincia TEXT NOT NULL,
     Pais TEXT NOT NULL
 );
 
 -- Insertar Valores Random
-        INSERT INTO Direcciones (Direccion_id,Calle,Numero,Ciudad,Pais)
+        INSERT INTO Direcciones (Codigo,Calle,Numero,Ciudad,Pais)
 VALUES
   (298,"P.O. Box 623, 6476 Nam Ave","175","Dublin","South Korea"),
   (164,"395-9582 Convallis St.","137","Rostov","Ireland"),
@@ -798,7 +798,7 @@ VALUES
   (72,"Ap #646-5930 Velit. Rd.","536","Ivano-Frankivsk","Sweden"),
   (167,"Ap #278-2935 Lacus St.","374","Liaoning","Ukraine"),
   (251,"Ap #898-7224 Donec Street","615","Newcastle","Pakistan");
-INSERT INTO Direcciones (Direccion_id,Calle,Numero,Ciudad,Pais)
+INSERT INTO Direcciones (Codigo,Calle,Numero,Ciudad,Pais)
 VALUES
   (10,"340-9824 Imperdiet, Street","654","Ålesund","Germany"),
   (41,"291-8358 Ullamcorper. Rd.","747","La Plata","Costa Rica"),
@@ -850,7 +850,7 @@ VALUES
   (295,"529-928 A, Street","390","Cần Thơ","Netherlands"),
   (465,"821-7260 Mi St.","371","Piringen","Mexico"),
   (452,"469-4194 Non, St.","518","Wonju","Philippines");
-INSERT INTO Direcciones (Direccion_id,Calle,Numero,Ciudad,Pais)
+INSERT INTO Direcciones (Codigo,Calle,Numero,Ciudad,Pais)
 VALUES
   (289,"Ap #821-7684 Phasellus St.","580","Alcobendas","Italy"),
   (303,"Ap #370-8843 Mauris, St.","842","Tlaquepaque","Netherlands"),
@@ -902,7 +902,7 @@ VALUES
   (325,"692-9981 Risus Avenue","420","Xinjiang","Norway"),
   (469,"862-1851 Iaculis Rd.","588","Jhang","Peru"),
   (22,"P.O. Box 743, 3676 Est Ave","232","Port Blair","Spain");
-INSERT INTO Direcciones (Direccion_id,Calle,Numero,Ciudad,Pais)
+INSERT INTO Direcciones (Codigo,Calle,Numero,Ciudad,Pais)
 VALUES
   (17,"P.O. Box 342, 5885 Sagittis. Street","693","Cisnes","Peru"),
   (313,"Ap #803-130 Aliquam, Ave","742","Bastia","Germany"),
@@ -954,7 +954,7 @@ VALUES
   (97,"187 Ornare, Av.","051","Itajaí","Brazil"),
   (369,"362-711 Aliquet, St.","448","Meppel","Russian Federation"),
   (245,"570-1413 Lobortis St.","591","Sotteville-lès-Rouen","United Kingdom");
-INSERT INTO Direcciones (Direccion_id,Calle,Numero,Ciudad,Pais)
+INSERT INTO Direcciones (Codigo,Calle,Numero,Ciudad,Pais)
 VALUES
   (252,"188-5624 Quis, Road","255","Irapuato","Mexico"),
   (102,"P.O. Box 929, 6594 Ornare Ave","973","Cessnock","France"),
@@ -1006,7 +1006,7 @@ VALUES
   (41,"6643 Pellentesque Avenue","866","Bellville","France"),
   (106,"Ap #789-882 Consequat, Road","861","Cheongju","Indonesia"),
   (26,"Ap #466-3614 Non, Rd.","217","Almere","Peru");
-INSERT INTO Direcciones (Direccion_id,Calle,Numero,Ciudad,Pais)
+INSERT INTO Direcciones (Codigo,Calle,Numero,Ciudad,Pais)
 VALUES
   (143,"Ap #905-7892 Varius Ave","907","Brønnøysund","Spain"),
   (419,"528-3478 Curabitur St.","416","Canberra","Russian Federation"),
@@ -1058,7 +1058,7 @@ VALUES
   (217,"P.O. Box 173, 8455 Senectus St.","288","Ribeirão Preto","United Kingdom"),
   (165,"5208 Ipsum Av.","666","Cork","India"),
   (63,"549-2000 Eu, St.","817","Poltava","Belgium");
-INSERT INTO Direcciones (Direccion_id,Calle,Numero,Ciudad,Pais)
+INSERT INTO Direcciones (Codigo,Calle,Numero,Ciudad,Pais)
 VALUES
   (328,"Ap #958-6108 Eu Road","545","Bremen","Colombia"),
   (229,"797-5285 Fringilla Rd.","884","Gansu","Costa Rica"),
@@ -1110,7 +1110,7 @@ VALUES
   (169,"589-5991 Elementum, Avenue","065","Chía","Canada"),
   (249,"P.O. Box 317, 3921 Imperdiet Ave","963","Dreux","South Korea"),
   (88,"Ap #272-4651 Tristique Rd.","848","Mandai","Netherlands");
-INSERT INTO Direcciones (Direccion_id,Calle,Numero,Ciudad,Pais)
+INSERT INTO Direcciones (Codigo,Calle,Numero,Ciudad,Pais)
 VALUES
   (276,"Ap #307-1270 Sed St.","714","Dosquebradas","Sweden"),
   (437,"P.O. Box 788, 3826 Est, St.","220","Ceuta","United States"),
@@ -1162,7 +1162,7 @@ VALUES
   (137,"736-7292 Ante Av.","442","Arauca","Spain"),
   (19,"Ap #179-9273 Nascetur Ave","140","Khmelnytskyi","Belgium"),
   (436,"Ap #228-9834 Mollis St.","411","Pachuca","South Korea");
-INSERT INTO Direcciones (Direccion_id,Calle,Numero,Ciudad,Pais)
+INSERT INTO Direcciones (Codigo,Calle,Numero,Ciudad,Pais)
 VALUES
   (132,"473-3102 Lacinia Road","102","Đồng Xoài","New Zealand"),
   (195,"684-4791 Lectus St.","128","Şereflikoçhisar","United Kingdom"),
@@ -1214,7 +1214,7 @@ VALUES
   (13,"574-4623 Nec Ave","354","Rustenburg","Norway"),
   (439,"P.O. Box 134, 3943 Arcu. Avenue","868","Ternopil","India"),
   (321,"Ap #101-6939 Adipiscing St.","236","Araban","India");
-INSERT INTO Direcciones (Direccion_id,Calle,Numero,Ciudad,Pais)
+INSERT INTO Direcciones (Codigo,Calle,Numero,Ciudad,Pais)
 VALUES
   (189,"3147 Ullamcorper, St.","959","West Jakarta","India"),
   (102,"455-2816 Interdum Rd.","538","Dallas","Ukraine"),
@@ -1284,7 +1284,6 @@ VALUES
 -- Inserto Valores Random Tipo cuenta en la tabla --
 UPDATE cuenta
 SET    TCuenta_id = abs(random() % 3) +1
-WHERE  TCuenta_id IS NULL;
 
 --ALTER TABLE cuenta
 --ADD FOREIGN KEY (TCuenta_id) REFERENCES TipoCuenta(TCuenta_id);
