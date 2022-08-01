@@ -261,3 +261,4 @@ BEGIN TRANSACTION;
         set balance = balance+1000 WHERE account_id = 400;
 
 COMMIT;
+-- Fin Problematica
