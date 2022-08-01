@@ -1356,11 +1356,8 @@ VALUES
 -- CAJA AHORRA EN DOLARES
 -- CUENTA CORRIENTE
 
---ALTER TABLE cuenta
---ADD IF NOT EXISTS
---    TCuenta_id INTEGER
-    
---;
+ALTER TABLE cuenta
+ADD TCuenta_id INTEGER;
 
 -- Inserto Valores Random Tipo cuenta en la tabla --
 UPDATE cuenta
