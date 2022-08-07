@@ -4,7 +4,7 @@
         "tipoCuenta":"Caja Ahorro",
         "dinero":{
             "ARS":5000,
-            "USD":6000,
+            "USDT":6000,
             "BTC":8000
         }
 
@@ -15,8 +15,7 @@
         "tipoCuenta":"Caja Ahorro",
         "dinero":{
             "ARS":5000,
-            "USD":76000,
-            "USDT":500
+            "USDT":76000
         }
     }
     ,
@@ -25,7 +24,7 @@
         "tipoCuenta":"Caja Ahorro",
         "dinero":{
             "ARS":58000,
-            "USD":6000,
+            "USDT":6000,
             "ETH":800
         }
     }
