@@ -11,7 +11,7 @@
 </head>
 <body>
     
-    <div class="container">
+    <div class="container pb-2">
         <div class="logo">
             <img src="../img/goCripto.png" alt="goCripto">
         </div>
@@ -30,7 +30,7 @@
         </div>
 
         <!--precios de divisas-->
-        <div class="row">
+        <div class="row m-2">
             <div class="card">
                 <h5 class="card-title">Hot Criptos</h5>
                 <div class="card-body">
@@ -43,11 +43,11 @@
         </div>
 
         <!--precios de dolares-->
-        <div class="row">
+        <div class="row m-2">
             <div class="card">
-                <div class="card-title">Cotizacion Dolar</div>
+                <h5 class="card-title">Cotizacion Dolar</h5>
                 <div class="card-body">
-                <div class="d-flex bd-highlight" id="FirstRow">
+                <div class="precios" id="FirstRow">
  
                 </div>
             </div>
@@ -57,8 +57,7 @@
 
         <!--Conversion de monedas-->
         <div class="row">
-            <div class="contenedor-conversor">
-                
+            <div class="contenedor-conversor">                
                 <!--Moneda a ingresar-->
                 <div class="flex-fill border">
                     <div class="conversor">
@@ -77,7 +76,6 @@
                 </div>
                 <!--Icono-->
                 <div id="flipCoin" class="flip">
-
                     <button class="boton-conversor" type="button" onclick="flipCoins()">&#8646</button>
                 </div>
 
@@ -111,8 +109,6 @@
                 <button class="comprar-boton" type="button" onclick="buy()">Comprar</button>
                 
             </div>
-        
-           
         </div>
 
         <div class="row">
@@ -120,8 +116,6 @@
                 <text id="msg"></text>
             </div>
         </div>
-
-
     </div>
     
 </body>

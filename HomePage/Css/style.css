@@ -24,11 +24,10 @@ body {
   display: block;
   height: 66vh;
 }
-.hov:hover{
-  background: rgba(244, 252, 255, 0.4);
+.hov:hover {
+  background: rgba(85, 129, 240, 0.8);
   transition: 0.2s;
 }
-
 .img-logo {
   width: 7em;
 }
