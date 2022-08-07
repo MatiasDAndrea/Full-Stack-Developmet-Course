@@ -62,7 +62,7 @@ async function precios(){
             let value = Number(apiInfo[i].price).toFixed(2)
             let coin = apiInfo[i].symbol.replace("USDT","")
             k += 1
-            body +=`<div class="card-fluid m-1"><div class="card body p-1 border-2 border-primary"><h4 class="AccountNumber text-nowrap ">${coin}</h4><h5 class="text-nowrap">${value} USD</h5></div></div>`
+            body +=`<div class="card p-1 border-2 border-primary"><h4 class="AccountNumber text-nowrap ">${coin}</h4><h5 class="text-nowrap">${value} USD</h5></div>`
         }
 
         if (k==3){
@@ -88,9 +88,9 @@ async function precios(){
         venta = el.casa.venta.replace(",",".")
         compra = el.casa.compra.replace(",",".")
 
-       if (allowedDolars.hasOwnProperty(nombre)){
+       if (/*allowedDolars.hasOwnProperty(nombre)*/true){
             dolarDict[nombre] = {"venta":venta,"compra":compra}
-            cards += `<div class="p-2 flex-fill bd-highlight border"><h5>${nombre}</h5><ul><li>Compra: $${compra}</li><li>Venta: $${venta}</li></ul></div>`
+            cards += `<div class="card p-1 border-2 border-success"><h5>${nombre}</h5><ul><li>Compra: $${compra}</li><li>Venta: $${venta}</li></ul></div>`
        }
     })
     dolarElement.innerHTML = cards
