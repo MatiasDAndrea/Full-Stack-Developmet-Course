@@ -100,7 +100,7 @@ async function precios(){
     })
 
     dolarElement.innerHTML = cards
-    console.log(dolarDict["Dolar Blue"]["venta"])
+
 }
 
 
@@ -167,10 +167,10 @@ function flipCoins(){
 
     let inputValue = inputCoin.value
     let outputValue = outputCoin.value
-    console.log(inputCoin.value, outputCoin.value)
+  
     inputCoin.value = outputValue
     outputCoin.value = inputValue
-    console.log(inputCoin.value, outputCoin.value)
+
 
     if (inputCoin.value == "" | outputCoin.value == ""){
         textMSG.innerHTML = "Usted no dispone de esta moneda"
@@ -197,7 +197,7 @@ function plotAccount(){
     const list = document.getElementById("accountResume")
     let coins = document.getElementById("inputCoin")
     const actualCoinValue = document.getElementById("inputCoin").value
-    console.log(actualCoinValue)
+
     let head = "<h2>Resumen de Cuenta</h2>"
     let body = ""
     let moneda = "<option selected></option>"
