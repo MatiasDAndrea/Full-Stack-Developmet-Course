@@ -1,0 +1,31 @@
+[
+    {
+        "id":"123-45697/8",
+        "tipoCuenta":"Caja Ahorro",
+        "dinero":{
+            "ARS":5000,
+            "USDT":6000,
+            "BTC":8000
+        }
+
+    }
+    ,
+    {
+        "id":"145-31245/4",
+        "tipoCuenta":"Caja Ahorro",
+        "dinero":{
+            "ARS":5000,
+            "USDT":76000
+        }
+    }
+    ,
+    {
+        "id":"359-12549/7",
+        "tipoCuenta":"Caja Ahorro",
+        "dinero":{
+            "ARS":58000,
+            "USDT":6000,
+            "ETH":800
+        }
+    }
+]

@@ -11,16 +11,14 @@
 </head>
 <body>
     
-    <div class="container">
+    <div class="container pb-2">
         <div class="logo">
-            <img src="img/goCripto.png" alt="goCripto">
+            <img src="../img/goCripto.png" alt="goCripto">
         </div>
         <!--Selector de cuenta (Cuenta1 / Cuenta2/ Cuenta3)-->
         <div class="row">
             <div class="col-12">
-                
                 <select class="form-select" aria-label="Default select example" id="Cuentas" onchange="plotAccount()">
-                   
                 </select>
             </div>
         </div>
@@ -31,11 +29,35 @@
             </div>
         </div>
 
+        <!--precios de divisas-->
+        <div class="row m-2">
+            <div class="card">
+                <h5 class="card-title">Hot Criptos</h5>
+                <div class="card-body">
+                    <div id="precios" class="precios">
+                
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--precios de dolares-->
+        <div class="row m-2">
+            <div class="card">
+                <h5 class="card-title">Cotizacion Dolar</h5>
+                <div class="card-body">
+                <div class="precios" id="FirstRow">
+ 
+                </div>
+            </div>
+            </div>
+
+        </div>
 
         <!--Conversion de monedas-->
         <div class="row">
-            <div class="contenedor-conversor">
-                
+            <div class="contenedor-conversor">                
                 <!--Moneda a ingresar-->
                 <div class="flex-fill border">
                     <div class="conversor">
@@ -46,10 +68,7 @@
                         <div>
                             <label for="inputCoin" class="form-label">Moneda</label>
                             <select class="form-select" aria-label="Default select example" id="inputCoin" onchange="conversion()">
-                                <option selected value=""></option>
-                                <option value="BTC">BTC</option>
-                                <option value="ETH">ETH</option>
-                                <option value="USDT">USDT</option>
+
                               </select>
                         </div>
 
@@ -57,7 +76,6 @@
                 </div>
                 <!--Icono-->
                 <div id="flipCoin" class="flip">
-
                     <button class="boton-conversor" type="button" onclick="flipCoins()">&#8646</button>
                 </div>
 
@@ -76,6 +94,7 @@
                                 <option value="BTC">BTC</option>
                                 <option value="ETH">ETH</option>
                                 <option value="USDT">USDT</option>
+                                <option value="ARS">ARS</option>
                               </select>
                         </div>
                     </div>
@@ -88,13 +107,13 @@
         <div class="row">
             <div class="comprar">
                 <button class="comprar-boton" type="button" onclick="buy()">Comprar</button>
+                
             </div>
         </div>
 
-    <!--precios de divisas-->
         <div class="row">
-            <div id="precios" class="precios">
-                
+            <div class="div">
+                <text id="msg"></text>
             </div>
         </div>
     </div>
