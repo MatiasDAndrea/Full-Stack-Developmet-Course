@@ -93,10 +93,15 @@ async function precios(){
             cards += `<div class="p-2 flex-fill bd-highlight border"><h5>${nombre}</h5><ul><li>Compra: $${compra}</li><li>Venta: $${venta}</li></ul></div>`
        }
     })
+
+    apiInfo.push({
+        "symbol":"USDTARS",
+        "price":dolarDict["Dolar Blue"]["venta"]
+    })
+
     dolarElement.innerHTML = cards
     console.log(dolarDict["Dolar Blue"]["venta"])
 }
-
 
 
 function conversion(){
@@ -110,14 +115,13 @@ function conversion(){
 
     const outputValue = document.getElementById("outputValue")
     const outputCoin = document.getElementById("outputCoin")
-    
-    
 
-    apiInfo.push({
-        "symbol":"ARSUSDT",
-        "price":dolarDict["Dolar Blue"]["venta"]
-    })
+    const textMSG = document.getElementById("msg")
     
+    if (inputCoin.value == "ARS"){
+        outputCoin.value = "USDT"
+    }
+
     if (inputCoin.value != "" & outputCoin.value != ""){
 
         let regex1 = new RegExp(`${outputCoin.value}${inputCoin.value}`)
@@ -131,16 +135,19 @@ function conversion(){
                 
                 const coef = Number(el.price)
                 outputValue.value = actualCoin*coef.toFixed(8)
+                textMSG.innerHTML = ""
             }
             else if (regex1.test(el.symbol)){
 
                 const coef = Number(1/el.price)
                 outputValue.value = actualCoin*coef.toFixed(8)
+                textMSG.innerHTML = ""
 
             }else if (inputCoin.value == outputCoin.value){
 
                 const coef = 1
                 outputValue.value = actualCoin*coef
+                textMSG.innerHTML = ""
             }
         })
     }
@@ -156,13 +163,22 @@ function flipCoins(){
 
     const inputCoin = document.getElementById("inputCoin")
     const outputCoin = document.getElementById("outputCoin")
+    const textMSG = document.getElementById("msg")
 
     let inputValue = inputCoin.value
     let outputValue = outputCoin.value
-
+    console.log(inputCoin.value, outputCoin.value)
     inputCoin.value = outputValue
     outputCoin.value = inputValue
+    console.log(inputCoin.value, outputCoin.value)
 
+    if (inputCoin.value == "" | outputCoin.value == ""){
+        textMSG.innerHTML = "Usted no dispone de esta moneda"
+        inputCoin.value = ""
+        outputCoin.value = ""
+        document.getElementById("inputValue").value = ""
+        document.getElementById("outputValue").value = ""
+    }
     // Llamo a la funcion conversion() para que ejecute la conversion.
     conversion()
 
@@ -180,8 +196,8 @@ function plotAccount(){
     const element = document.getElementById("Cuentas")
     const list = document.getElementById("accountResume")
     let coins = document.getElementById("inputCoin")
-    let valueCoin = coins.value
-
+    const actualCoinValue = document.getElementById("inputCoin").value
+    console.log(actualCoinValue)
     let head = "<h2>Resumen de Cuenta</h2>"
     let body = ""
     let moneda = "<option selected></option>"
@@ -201,8 +217,8 @@ function plotAccount(){
             break
         }
         list.innerHTML = body
-        
     }
+    document.getElementById("inputCoin").value = actualCoinValue
 }
 
 
@@ -220,6 +236,8 @@ function buy(){
 
     const outputValue = Number(document.getElementById("outputValue").value)
     const outputCoin = document.getElementById("outputCoin").value
+
+    const textMSG = document.getElementById("msg")
 
     // Transferencia entre monedas
     for (let i=0;i<accountData.length;i++){
@@ -251,20 +269,12 @@ function buy(){
                 plotAccount()
 
             }
-            else if (!ownPropCheckIn){
-
-                alert("Usted no tiene este tipo de moneda")
-                
-            }
             else if (ownPropCheckIn & accountData[i].dinero[inputCoin]<inputValue ){
 
-                alert("Usted no dispone de la cantidad estipulada")
-                
+                textMSG.innerHTML ="Usted no dispone de la cantidad estipulada"
             }
-
             break
         }
-
     }
 }
 
