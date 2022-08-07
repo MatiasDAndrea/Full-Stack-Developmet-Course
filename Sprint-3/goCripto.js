@@ -88,7 +88,7 @@ async function precios(){
         venta = el.casa.venta.replace(",",".")
         compra = el.casa.compra.replace(",",".")
 
-       if (/*allowedDolars.hasOwnProperty(nombre)*/true){
+       if (allowedDolars.hasOwnProperty(nombre)){
             dolarDict[nombre] = {"venta":venta,"compra":compra}
             cards += `<div class="card p-1 border-2 border-success"><h5>${nombre}</h5><ul><li>Compra: $${compra}</li><li>Venta: $${venta}</li></ul></div>`
        }
