@@ -9,7 +9,7 @@ class Cuenta(models.Model):
     tcuenta_id = models.IntegerField(db_column='TCuenta_id', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'cuenta'
 
 
@@ -21,5 +21,5 @@ class Movimientos(models.Model):
     hora = models.TextField(db_column='HORA')  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'Movimientos'

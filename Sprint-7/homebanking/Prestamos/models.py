@@ -9,5 +9,5 @@ class Prestamo(models.Model):
     customer_id = models.IntegerField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'prestamo'

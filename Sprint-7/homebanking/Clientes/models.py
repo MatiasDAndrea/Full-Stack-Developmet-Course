@@ -10,7 +10,7 @@ class Cliente(models.Model):
     branch_id = models.IntegerField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'cliente'
 
 
@@ -23,5 +23,5 @@ class Empleado(models.Model):
     branch_id = models.IntegerField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'empleado'

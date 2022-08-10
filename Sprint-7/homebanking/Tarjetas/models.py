@@ -7,7 +7,7 @@ class Marcastarjetas(models.Model):
     ttarjetas_marca = models.TextField(db_column='TTarjetas_Marca')  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'MarcasTarjetas'
 
 
@@ -23,5 +23,5 @@ class Tarjetas(models.Model):
     asignacion = models.TextField(db_column='Asignacion')  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'Tarjetas'
