@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     
-    path('',views.LoginPackage.login,name="Login")
+    path('',views.LoginPackage.login,name="Login"),
+    path('message/',views.LoginPackage.login_action,name="Login_action"),
 ]

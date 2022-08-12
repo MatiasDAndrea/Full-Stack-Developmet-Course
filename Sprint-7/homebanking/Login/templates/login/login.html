@@ -25,18 +25,23 @@
           </div>
           
           <div>
-            <div class="input-group mb-3 ">
-                <span class="input-group-text" id="basic-addon1">Usuario</span>
-                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon3">DNI</span>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text">Contraseña</span>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-            </div>
+            <div class="row">
+
+              <div class="col-lg-8 col-md-10 mx-auto">
+                  {% if "OK" in request.GET %}
+                    <h1>Barbaro Pa</h1>
+                  {% endif %}
+                  <form action="message/" method="POST">
+                    {% csrf_token %}
+                      <div class="form-group">
+                          <table>
+                              {{form.as_p}}
+                          </table>
+                          <input type="submit" value="Enviar"/>
+                      </div>
+                  </form>
+              </div>
+          </div>
             <div class="col-12">
               <div class="form-check">
                 <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
