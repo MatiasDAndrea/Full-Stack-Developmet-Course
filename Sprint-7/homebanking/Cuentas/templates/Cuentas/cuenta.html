@@ -17,11 +17,13 @@
 <body style="background-image: url('{% static 'Cuentas/img/marketplace-futuro-banca.jpg' %}'); background-size: 100vw;font-family:BIZ UDPGothic">
     <div class="container d-flex  justify-content-center vh-100">
         <div class="row">
-            
             <!-- General Menu-->
             <div class="col-12">
                 <div class="card m-1">
                     <div class="card-body">
+                        <div class="card-title">
+                            <h1>Bienvenido {{content.nombre}}</h1>
+                        </div>
                         <div class="d-flex bd-highlight mb-1">
                             <div class="me-auto p-1 bd-highlight">
                                 <div class="dropdown">
@@ -131,43 +133,42 @@
             <!-- Account Cards-->
             <div class="col-12 d-none d-sm-block">
                 <div id= "AccountCards" class="d-flex rounded justify-content-center border m-1" style="background:inherit ;backdrop-filter: blur(5px);">
-                    
+                    {% for cards in content.tarjetas %}
                     <div class="card m-2 h-100">
+                        <div class="card-title border rounded border-primary border-2">
+                            <h4>{{cards.ttarjetas.ttarjetas_marca}}</h4>
+                            <h5>{{cards.tarjeta_numero}}</h5>
+                        </div>
                         <div class="card body p-2 border-2 border-primary">
-                            <h4 class="AccountNumber">123-456978/8</h4>
-                            <h6>Cuenta Unica</h6>
                             <ul>
-                                <li>5000,00 $</li>
-                                <li>6000,00 U$s</li>
+                                <li>Otorgamiento: {{cards.tarjeta_fecha_otorgamiento}}</li>
+                                <li>Expiracion: {{cards.tarjeta_fecha_expiracion}}</li>
+                                <li>CVV: {{cards.tarjeta_cvv}} </li>
                             </ul>
                         </div>
                     </div>
-
-                    <div class="card m-2 h-100">
-                        <div class="card body p-2 border-2 border-primary">
-                            <h4 class="AccountNumber">Visa xxxx-1000</h4>
-                            <h6>Tarjeta de Credito</h6>
-                            <h6>Vencimiento __/__</h6>
-                            <ul>
-                                <li>6000,00 $</li>
-                                <li>7000,00 U$s</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="card-fluid m-2 h-100">
-                        <div class="card body p-2 border-2 border-primary">
-                            <h4 class="AccountNumber" style="overflow-wrap: break-word">Visa xxxx-2000</h4>
-                            <h6>Tarjeta de Credito</h6>
-                            <h6>Vencimiento __/__</h6><hr>
-                            <ul>
-                                <li>8000,00 $</li>
-                                <li>9000,00 U$s</li>
-                            </ul>
-                        </div>
-                    </div>
-
+                    {% endfor %}
                 </div>
+
+                <div class="col-12 d-none d-sm-block">
+                    <div id= "AccountCards" class="d-flex rounded justify-content-center border m-1" style="background:inherit ;backdrop-filter: blur(5px);">
+                        {% for cards in content.cuentas %}
+                        <div class="card m-2 h-100">
+                            <div class="card-title border rounded border-primary border-2">
+                                <h4>{{cards.ttarjetas.ttarjetas_marca}}</h4>
+                                <h5>{{cards.tarjeta_numero}}</h5>
+                            </div>
+                            <div class="card body p-2 border-2 border-primary">
+                                <ul>
+                                    <li>Otorgamiento: {{cards.tarjeta_fecha_otorgamiento}}</li>
+                                    <li>Expiracion: {{cards.tarjeta_fecha_expiracion}}</li>
+                                    <li>CVV: {{cards.tarjeta_cvv}} </li>
+                                </ul>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
 
 
 
