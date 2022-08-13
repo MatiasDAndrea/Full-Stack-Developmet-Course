@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,8 +11,8 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
-    <link rel="stylesheet" href="static/css/style.css" />
+    
+    <link rel="stylesheet" href="{% static 'Login/css/style.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +22,7 @@
   <body>
     <header class="encabezado">
       <div class="logo">
-        <img class="img-logo" src="static/img/Logo.png" alt="ITBANK" />
+        <img class="img-logo" src="{%static 'Login/img/Logo.png' %}" alt="ITBANK" />
       </div>
       <nav class="menu">
         <ul class="nav text-small">
@@ -37,7 +38,7 @@
         </ul>
       </nav>
       <div class="log-in hov">
-          <a href="../Login.html">Log In</a>
+          <a href="{% url 'logout' %}">Log In</a>
       </div>
       </li>
     </header>
