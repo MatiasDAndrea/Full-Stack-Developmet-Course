@@ -41,4 +41,24 @@ class Migration(migrations.Migration):
                 'managed': True,
             },
         ),
+        migrations.CreateModel(
+            name='Tipoclientes',
+            fields=[
+                ('tcliente_id', models.AutoField(db_column='TCliente_id', primary_key=True, serialize=False)),
+                ('tcliente_tipo', models.TextField(db_column='TCliente_tipo')),
+                ('tcliente_descubrimiento', models.IntegerField(db_column='TCliente_descubrimiento')),
+                ('tcliente_creditolim', models.IntegerField(db_column='TCliente_creditoLim')),
+                ('tcliente_chequeralim', models.IntegerField(db_column='TCliente_chequeraLim')),
+                ('tcliente_comision', models.IntegerField(db_column='TCliente_Comision')),
+                ('tcliente_limite_transferencia', models.TextField(db_column='TCliente_Limite_Transferencia')),
+                ('tcliente_crear_tarjeta', models.TextField(db_column='TCliente_Crear_Tarjeta')),
+                ('tcliente_crear_chequera', models.TextField(db_column='TCliente_Crear_Chequera')),
+                ('tcliente_comprar_dolar', models.TextField(db_column='TCliente_Comprar_Dolar')),
+                ('tcliente_limite_extraccion', models.IntegerField(db_column='TCliente_Limite_Extraccion')),
+            ],
+            options={
+                'db_table': 'TipoClientes',
+                'managed': True,
+            },
+        ),
     ]

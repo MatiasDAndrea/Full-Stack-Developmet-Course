@@ -24,7 +24,7 @@
 <body>
     <header class="encabezado">
         <div class="logo">
-          <img class="img-logo" src="../HomePage/img/Logo.png" alt="ITBANK" />
+          <img class="img-logo" src="{% static 'Prestamos/img/Logo.png' %}" alt="ITBANK" />
         </div>
       </header>
       <main>
@@ -37,24 +37,33 @@
                   <div class="row mt-3">
                     <div class="col-md-9 mx-auto mb-5">
                       
-                      <form action="Prestamos/Mensaje/" method="post">{% csrf_token %}
+                      <form action="Prestamos/Mensaje/" method="post" id="carform">{% csrf_token %}
                         <h3 class="mb-4">Solicitud de Prestamo</h3>
                         {% if form.non_field_errors %}
                           <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
                         {% endif %}
+                        {{msg}}
                         <p>
-                          <input type="text" name="tipoprestamo" autofocus maxlength="254" required
-                            id="id_prestamo" class="form-control" placeholder="Tipo de Prestamo"/>
+                          <label for="cars">Seleccione un Prestamo :</label>
+                          <select name="seleccion_prestamo" id="seleccion_prestamo">
+                            <option value=" "></option>
+                            <option value="Hipotecario">Hipotecario</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Prendario">Prendario</option>
+                            
+                          </select>
                         </p>
                         <p>
-              
                           <input type="number" name="Monto" required
-              
                             id="id_monto" class="form-control" placeholder="Monto"/>
-              
+                        </p>
+                        <p>
+                          <input type="date" name="Fecha" required
+                            id="Fecha" class="form-control" placeholder="Fecha de Inicio"/>
                         </p>
                         <p><input type="submit" class="btn btn-primary btn-block" value="Conceder Prestamo"></p>
                       </form>
+
               
                     </div>
                   </div>
@@ -63,16 +72,21 @@
             </div>
 
             <div class="seccion">
-            <h1>Tabla para prestamos generados</h1>
-            <div class="prestamo">
-                <p>prestamo1</p>
-            <div class="prestamo">
-                <p>prestamo2</p>
-            </div>                
-            <div class="prestamo">
-                <p>prestamo3</p>
-            </div>
-            </div>
+            <h1>Prestamos Solicitados</h1>
+            <table>
+              <tr>
+                <th>Tipo de Prestamo</th>
+                <th>Monto</th>
+                <th>Fecha de Inicio</th>
+              </tr>
+              {% for prestamo in prestamos %}
+              <tr>
+                <td>{{prestamo.loan_type}}</td>
+                <td>${{prestamo.loan_total}}</td>
+                <td>{{prestamo.loan_date}}</td>
+              </tr>
+              {% endfor %}
+            </table>
       </main>
 </body>
 </html>

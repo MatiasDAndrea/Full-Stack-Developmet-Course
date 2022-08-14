@@ -47,3 +47,22 @@ insert into Movimientos(
     (3,10000,"Estacion YPF","03-01"),
     (3,10000,"MC Donalds","03-01")
 ;
+
+INSERT INTO TipoClientes (
+    TCliente_tipo,
+    TCliente_descubrimiento,
+    TCliente_creditoLim,
+    TCliente_chequeraLim,
+    TCliente_Comision,
+    TCliente_Limite_Transferencia,
+    TCliente_Crear_Tarjeta,
+    TCliente_Crear_Chequera,
+    TCliente_Comprar_Dolar,
+    TCliente_Limite_Extraccion,
+    TCliente_Prestamo
+)
+VALUES 
+    ("CLASSIC",0,0,0,1,"150000","FALSE","FALSE","FALSE",10000,100000),
+    ("GOLD",10000,1,1,0.5,"500000","TRUE","TRUE","TRUE",20000,300000),
+    ("BLACK",10000,5,2,0,"INF","TRUE","TRUE","TRUE",100000,500000)
+;

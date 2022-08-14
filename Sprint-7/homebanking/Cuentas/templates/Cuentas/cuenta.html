@@ -135,20 +135,20 @@
                         </div>
                     {% endfor %}
                 </div>
-
+                
+                <!-- Tipo de Cuentas para el usuario-->
                 <div class="col-12 d-none d-sm-block">
                     <div id= "AccountCards" class="d-flex rounded justify-content-center border m-1" style="background:inherit ;backdrop-filter: blur(5px);">
                         {% for cards in content.cuentas %}
                         <div class="card m-2 h-100">
                             <div class="card-title border rounded border-primary border-2">
-                                <h4>{{cards.ttarjetas.ttarjetas_marca}}</h4>
-                                <h5>{{cards.tarjeta_numero}}</h5>
+                                <h4>{{cards.tcuenta_id.tcuenta_tipo}}</h4>
+                                <h5>Numero de Cuenta: {{cards.account_id}}</h5>
                             </div>
                             <div class="card body p-2 border-2 border-primary">
                                 <ul>
-                                    <li>Otorgamiento: {{cards.tarjeta_fecha_otorgamiento}}</li>
-                                    <li>Expiracion: {{cards.tarjeta_fecha_expiracion}}</li>
-                                    <li>CVV: {{cards.tarjeta_cvv}} </li>
+                                    <li>Balance: ${{cards.balance}}</li>
+                                    <li>IBAN: {{cards.iban}}</li>
                                 </ul>
                             </div>
                         </div>

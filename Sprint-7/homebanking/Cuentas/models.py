@@ -11,13 +11,12 @@ class Tipocuenta(models.Model):
         db_table = 'TipoCuenta'
 
 
-
 class Cuenta(models.Model):
     account_id = models.AutoField(primary_key=True)
     customer_id = models.ForeignKey(Cliente,on_delete=models.CASCADE)
     balance = models.IntegerField()
     iban = models.TextField()
-    tcuenta_id = models.IntegerField(db_column='TCuenta_id', blank=True, null=True)  # Field name made lowercase.
+    tcuenta_id = models.ForeignKey(Tipocuenta,on_delete=models.CASCADE)
 
     class Meta:
         managed = True
