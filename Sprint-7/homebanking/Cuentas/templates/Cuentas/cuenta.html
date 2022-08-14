@@ -76,31 +76,17 @@
                         <div class="d-flex">
                             <select class="form-select form-select-m mb-0 btn btn-primary border-2" aria-label=".form-select-m example">
                                 <option selected>Seleccione su Cuenta</option>
-                                <option value="1">CBU1</option>
-                                <option value="2">CBU2</option>
-                                <option value="3">CBU3</option>
+                                {% for accounts in content.cuentas %}
+                                
+                                    var += <option value="{{accounts.account_id}}">Cuenta: {{accounts.account_id}}</option>
+                                {% endfor %}
+                                var
                             </select> 
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Account State-->
-            <div class="col-12 d-block d-sm-none">
-                <div class="card m-1" style="backdrop-filter: blur(5px);">
-                    <div class="card-body">
-                        <div class="d-flex border m-0 border-primary border-2 rounded">
-                            <div class="me-auto p-2 bd-highlight">
-                                <h2>Saldo</h2>
-                            </div>
-                            <div class="p-2">
-                                <h2>$18.000,00</h2>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
             
             <!-- Buttons-->
             <div class="col-12">
@@ -134,19 +120,19 @@
             <div class="col-12 d-none d-sm-block">
                 <div id= "AccountCards" class="d-flex rounded justify-content-center border m-1" style="background:inherit ;backdrop-filter: blur(5px);">
                     {% for cards in content.tarjetas %}
-                    <div class="card m-2 h-100">
-                        <div class="card-title border rounded border-primary border-2">
-                            <h4>{{cards.ttarjetas.ttarjetas_marca}}</h4>
-                            <h5>{{cards.tarjeta_numero}}</h5>
+                        <div class="card m-2 h-100">
+                            <div class="card-title border rounded border-primary border-2">
+                                <h4>{{cards.ttarjetas.ttarjetas_marca}}</h4>
+                                <h5>{{cards.tarjeta_numero}}</h5>
+                            </div>
+                            <div class="card body p-2 border-2 border-primary">
+                                <ul>
+                                    <li>Otorgamiento: {{cards.tarjeta_fecha_otorgamiento}}</li>
+                                    <li>Expiracion: {{cards.tarjeta_fecha_expiracion}}</li>
+                                    <li>CVV: {{cards.tarjeta_cvv}} </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="card body p-2 border-2 border-primary">
-                            <ul>
-                                <li>Otorgamiento: {{cards.tarjeta_fecha_otorgamiento}}</li>
-                                <li>Expiracion: {{cards.tarjeta_fecha_expiracion}}</li>
-                                <li>CVV: {{cards.tarjeta_cvv}} </li>
-                            </ul>
-                        </div>
-                    </div>
                     {% endfor %}
                 </div>
 
@@ -168,10 +154,7 @@
                         </div>
                         {% endfor %}
                     </div>
-
-
-
-
+                </div>  
             </div>
 
             <!-- Account Movements-->
@@ -179,30 +162,16 @@
                 <div class="card m-1" style="background:inherit ;backdrop-filter: blur(5px);" >
                     <div class="card-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action border-2 rounded border-primary">
-                              <div class="d-flex w-100 justify-content-between border-2">
-                                <h5 class="mb-1">Gasto 1</h5>
-                                <small class="text-muted">3 days ago</small>
-                              </div>
-                              <p class="mb-1">$5000,00</p>
-                              <small class="text-muted">Transferencia via Web</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action border-2 rounded border-primary">
-                              <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Gasto 2</h5>
-                                <small class="text-muted">4 days ago</small>
-                              </div>
-                              <p class="mb-1">$4000,00</p>
-                              <small class="text-muted">Compra en local</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action border-2 rounded border-primary">
-                              <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Gasto 3</h5>
-                                <small class="text-muted">5 days ago</small>
-                              </div>
-                              <p class="mb-1">$6000,00</p>
-                              <small class="text-muted">Compra via Web</small>
-                            </a>
+                            {% for gastos in content.movimientos %}
+                                <a href="#" class="list-group-item list-group-item-action border-2 rounded border-primary">
+                                <div class="d-flex w-100 justify-content-between border-2">
+                                    <h5 class="mb-1">{{gastos.tipo_operacion}}</h5>
+                                    <small class="text-muted">{{gastos.hora}}</small>
+                                </div>
+                                <p class="mb-1">${{gastos.monto}}</p>
+                                <small class="text-muted">Verified</small>
+                                </a>
+                            {% endfor %}
                         </div>
                     </div>
                 </div> 

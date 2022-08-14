@@ -30,3 +30,21 @@ class Empleado(models.Model):
     class Meta:
         managed = True
         db_table = 'empleado'
+
+
+class Tipocliente(models.Model):
+    tcliente_id = models.AutoField(db_column='TCliente_id', primary_key=True)  # Field name made lowercase.
+    tcliente_tipo = models.TextField(db_column='TCliente_tipo')  # Field name made lowercase.
+    tcliente_descubrimiento = models.IntegerField(db_column='TCliente_descubrimiento')  # Field name made lowercase.
+    tcliente_creditolim = models.IntegerField(db_column='TCliente_creditoLim')  # Field name made lowercase.
+    tcliente_chequeralim = models.IntegerField(db_column='TCliente_chequeraLim')  # Field name made lowercase.
+    tcliente_comision = models.IntegerField(db_column='TCliente_Comision')  # Field name made lowercase.
+    tcliente_limite_transferencia = models.TextField(db_column='TCliente_Limite_Transferencia')  # Field name made lowercase.
+    tcliente_crear_tarjeta = models.TextField(db_column='TCliente_Crear_Tarjeta')  # Field name made lowercase.
+    tcliente_crear_chequera = models.TextField(db_column='TCliente_Crear_Chequera')  # Field name made lowercase.
+    tcliente_comprar_dolar = models.TextField(db_column='TCliente_Comprar_Dolar')  # Field name made lowercase.
+    tcliente_limite_extraccion = models.IntegerField(db_column='TCliente_Limite_Extraccion')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'TipoCliente'

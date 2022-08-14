@@ -30,3 +30,20 @@ VALUES
     ("Caja de ahorro en dólares"),
     ("Cuenta Corriente")
 ;
+
+insert into Movimientos(
+    NumCuenta,
+    Monto,
+    Tipo_Operacion,
+    HORA
+)VALUES
+    (1,10000,"Transferencia Inmediata","03-01"),
+    (1,10000,"Estacion YPF","03-01"),
+    (1,10000,"MC Donalds","03-01"),
+    (2,10000,"Transferencia Inmediata","03-01"),
+    (2,10000,"Estacion YPF","03-01"),
+    (2,10000,"MC Donalds","03-01"),
+    (3,10000,"Transferencia Inmediata","03-01"),
+    (3,10000,"Estacion YPF","03-01"),
+    (3,10000,"MC Donalds","03-01")
+;

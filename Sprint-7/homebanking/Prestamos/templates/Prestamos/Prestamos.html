@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Prestamos/css/Prestamos.css' %}">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link link rel="stylesheet" type="text/css" href="~/lib/font-awesome/css/all.min.css" />
+    <link link rel="stylesheet" type="text/css" href="../HomePage/Css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&display=swap" rel="stylesheet">     <title>ITBANK</title>
+    <title>Préstamos</title>
+</head>
+<body>
+    <header class="encabezado">
+        <div class="logo">
+          <img class="img-logo" src="../HomePage/img/Logo.png" alt="ITBANK" />
+        </div>
+      </header>
+      <main>
+            <div class="seccion">
+              <style>.errorlist{color:red;}</style>
+
+              <main role="main">
+                
+                <div class="container">
+                  <div class="row mt-3">
+                    <div class="col-md-9 mx-auto mb-5">
+                      
+                      <form action="Prestamos/Mensaje/" method="post">{% csrf_token %}
+                        <h3 class="mb-4">Solicitud de Prestamo</h3>
+                        {% if form.non_field_errors %}
+                          <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+                        {% endif %}
+                        <p>
+                          <input type="text" name="tipoprestamo" autofocus maxlength="254" required
+                            id="id_prestamo" class="form-control" placeholder="Tipo de Prestamo"/>
+                        </p>
+                        <p>
+              
+                          <input type="number" name="Monto" required
+              
+                            id="id_monto" class="form-control" placeholder="Monto"/>
+              
+                        </p>
+                        <p><input type="submit" class="btn btn-primary btn-block" value="Conceder Prestamo"></p>
+                      </form>
+              
+                    </div>
+                  </div>
+                </div>
+              </main>
+            </div>
+
+            <div class="seccion">
+            <h1>Tabla para prestamos generados</h1>
+            <div class="prestamo">
+                <p>prestamo1</p>
+            <div class="prestamo">
+                <p>prestamo2</p>
+            </div>                
+            <div class="prestamo">
+                <p>prestamo3</p>
+            </div>
+            </div>
+      </main>
+</body>
+</html>
