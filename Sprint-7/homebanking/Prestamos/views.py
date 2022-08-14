@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+
 from Clientes.models import Cliente, Tipoclientes
 from Prestamos.models import Prestamo
 
@@ -33,7 +34,8 @@ class PrestamoPackage:
             # Checkeo parametros ingresados.
             opcion_prestamo = ["Hipotecario","Personal","Prendario"]
             opcion_prestamo_bool = tipo_prestamo in opcion_prestamo
-            monto_zero_bool = monto >= 0
+            monto_zero_bool = monto > 0
+            msg = ""
 
             if not opcion_prestamo_bool:
                 msg = "Porfavor, seleccione el tipo de prestamo a tomar."
@@ -47,15 +49,19 @@ class PrestamoPackage:
             if monto > monto_maximo:
                 tcliente = Tipoclientes.objects.get(tcliente_id = cliente_tipo).tcliente_tipo
                 msg = f"El monto solicitado supera al limite establecido para clientes {tcliente}."
-                return HttpResponse(msg)
+                
 
-            ###########################
-            # Creacion de la solicitud.
-            Prestamo.objects.create(
-                loan_type = tipo_prestamo,
-                loan_date = fecha,
-                loan_total = monto,
-                customer_id = user.id
-            )
+            if msg == "":
+                ###########################
+                # Creacion de la solicitud.
+                Prestamo.objects.create(
+                    loan_type = tipo_prestamo,
+                    loan_date = fecha,
+                    loan_total = monto,
+                    customer_id = user.id
+                )
+                
 
-        return redirect(reverse('prestamos'))
+                msg = "Felicitaciones, su prestamo fue efectivamente consolidado"
+
+            return render(request,'Prestamos/PrestamosStatus.html',{'msg':msg})    

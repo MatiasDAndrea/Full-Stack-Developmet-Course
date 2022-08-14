@@ -12,6 +12,8 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://css.gg/bell.css' rel='stylesheet'>
     <link link rel="stylesheet" type="text/css" href="~/lib/font-awesome/css/all.min.css" />
     <link link rel="stylesheet" type="text/css" href="../HomePage/Css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +26,10 @@
 <body>
     <header class="encabezado">
         <div class="logo">
-          <img class="img-logo" src="{% static 'Prestamos/img/Logo.png' %}" alt="ITBANK" />
+          <a href="{% url 'cuenta' %}"><img class="img-logo" src="{% static 'Prestamos/img/Logo.png' %}" alt="ITBANK" /></a>
+        </div>
+        <div>
+          <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-primary border-2 rounded-circle"><i class="fa fa-sign-out"></i></button></a>
         </div>
       </header>
       <main>
