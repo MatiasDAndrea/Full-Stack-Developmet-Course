@@ -1,3 +1,15 @@
+#############################################################################
+#   
+#   Contiene al paquete CuentasPackage
+#       Metodos del paquete:
+#            - cuenta: Se encarga de tomar la informacion de la base de datos
+#               y realizar el correspondiente render sobre la pagina cuentas.
+#
+#            - gocripto_render: Realiza el render de la pagina goCripto.
+#
+#############################################################################
+
+
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from Clientes.models import Cliente

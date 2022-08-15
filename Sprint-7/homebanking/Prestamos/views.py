@@ -1,12 +1,25 @@
+####################################################################
+#
+#   Contiene al paquete PrestamosPackage
+#       Metodos:
+#           - log_page: Se encarga de renderizar la pagina 
+#               a partir de la informacion en la base de datos.
+#               Utiliza informacion de Prestamos y Cliente.
+#
+#           - mensaje: Se encarga de renderizar una pagina
+#               que contiene la respuesta frente a la solicitud
+#               de prestamo. Ante falla en ingreso, aqui se estipula
+#               de donde proviene el error.
+#
+#           Los ingresos son autenticados!
+#####################################################################
+
 from django.shortcuts import render,redirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-
 from Clientes.models import Cliente, Tipoclientes
 from Cuentas.models import Cuenta
 from Prestamos.models import Prestamo
-
-# Create your views here.
 
 class PrestamoPackage:
 
@@ -27,7 +40,9 @@ class PrestamoPackage:
     def mensaje(request):
 
         if request.method == 'POST':
-
+            
+            ################################
+            # Parametros de Ingreso y de DB.
             user          = request.user
             
             cliente_tipo  = Cliente.objects.get(customer_id= user.id).id
