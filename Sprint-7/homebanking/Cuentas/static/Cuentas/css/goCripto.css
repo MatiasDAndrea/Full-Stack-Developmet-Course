@@ -1,0 +1,80 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    font-size: large;
+}
+.container{
+    padding-top: 2em;
+    display: grid;
+    gap: 1em;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    min-height: 30rem;
+    width: 100%;
+}
+.conversor{
+    display: flex;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.8);
+    justify-content: space-between;
+}
+.contenedor-conversor{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+}
+.flip{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img{
+    width: 22%;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.boton-conversor{
+    width: 40%;
+}
+.comprar-boton{
+    padding: 0.2em;
+    border-radius: 4px;
+    border-color: rgba(0, 0, 0, 0.4)
+}
+.comprar{
+    display: flex;
+    justify-content: center;
+}
+.precios{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+}
+.card-fluid{
+    width: 20%;
+    text-align: center;
+}
+.cantidad{
+    width: 70%;
+}
+.hov:hover{
+    background: rgba(244, 252, 255, 0.8);
+    transition: 0.2s;
+}
+
+@media screen and (min-width: 480px) {
+    
+}
+@media screen and (min-width: 780px) {
+    .contenedor-conversor{
+        display: grid;
+        grid-template-columns: 3fr 1fr 3fr;
+    }
+    .precios{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1em;
+    }
+}
