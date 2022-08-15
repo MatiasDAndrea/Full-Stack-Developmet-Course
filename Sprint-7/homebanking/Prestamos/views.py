@@ -74,7 +74,6 @@ class PrestamoPackage:
 
                 ##################################
                 # Update del balance de la cuenta.
-                print(cuenta,type(cuenta))
                 saldo_inicial = Cuenta.objects.get(account_id = int(cuenta)).balance
                 Cuenta.objects.filter(account_id = cuenta).update(balance=saldo_inicial+monto)
 
