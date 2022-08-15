@@ -14,8 +14,6 @@
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://css.gg/bell.css' rel='stylesheet'>
-    <link link rel="stylesheet" type="text/css" href="~/lib/font-awesome/css/all.min.css" />
-    <link link rel="stylesheet" type="text/css" href="../HomePage/Css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&display=swap" rel="stylesheet">     <title>ITBANK</title>
@@ -27,21 +25,18 @@
           <a href="{% url 'cuenta' %}"><img class="img-logo" src="{% static 'Prestamos/img/Logo.png' %}" alt="ITBANK" /></a>
         </div>
         <div>
-          <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-primary border-2 rounded-circle"><i class="fa fa-sign-out"></i></button></a>
+          <a href="{% url 'logout' %}"><button type="button" class="btn btn-dark border-2 rounded-circle"><i class="fa fa-sign-out"></i></button></a>
         </div>
       </header>
       <main>
             <div class="seccion">
-              <style>.errorlist{color:red;}</style>
+              
               <main role="main">
                 <div class="container">
                   <div class="row mt-3">
                     <div class="col-md-9 mx-auto mb-5">
                       <form action="Prestamos/Mensaje/" method="post" id="carform">{% csrf_token %}
                         <h3 class="mb-4">Solicitud de Prestamo</h3>
-                        {% if form.non_field_errors %}
-                          <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
-                        {% endif %}
                         {{msg}}
                         <p>
                           <label for="prestamos"></label>
@@ -70,7 +65,7 @@
                           <input type="date" name="Fecha" required
                             id="Fecha" class="form-control" placeholder="Fecha de Inicio"/>
                         </p>
-                        <p><input type="submit" class="btn btn-primary btn-block" value="Conceder Prestamo"></p>
+                        <p><input type="submit" class="btn btn-dark btn-block" value="Conceder Prestamo"></p>
                       </form>
                     </div>
                   </div>
@@ -79,8 +74,8 @@
             </div>
 
             <div class="seccion">
-            <h1>Prestamos Solicitados</h1>
-            <table>
+            <h2>Prestamos Conferidos</h2>
+            <table class="table table-bordered">
               <tr>
                 <th>Tipo de Prestamo</th>
                 <th>Monto</th>
