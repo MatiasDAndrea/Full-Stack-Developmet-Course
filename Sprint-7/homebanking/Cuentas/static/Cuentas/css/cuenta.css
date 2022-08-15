@@ -23,10 +23,6 @@ body {
     background-position: 0% 50%;
   }
 }
-.content {
-  display: block;
-  height: 66vh;
-}
 .hov:hover {
   background: rgba(85, 129, 240, 0.8);
   transition: 0.2s;
@@ -39,13 +35,12 @@ body {
   display: flex;
   justify-content: center;
 }
-
 .nav-link {
   margin: 0;
   color: black;
   text-decoration: none;
   font-size: 1em;
-  padding: 1em !important;
+  padding: 1em;
   background: rgba(244, 252, 255, 0.0);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
@@ -70,7 +65,9 @@ body {
 .segundoEncabezado{
   display: flex;
 }
-
+.logout{
+  margin-right: 1em;
+}
 .log-in {
   margin-left: auto;
   display: flex;
@@ -97,18 +94,44 @@ hgroup h2 {
   font-size: 2vw;
   white-space: nowrap;
 }
-hgroup {
-  margin-left: 2em;
-  margin-right: auto;
+.seccion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
   padding: 1.5em;
-  margin-top: 5.5em;
+  margin-top: 2em;
+  margin-bottom: 2em;
   background: rgba(244, 252, 255, 0.20);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(244, 252, 255, 0);
-  max-width: fit-content;
+}
+.seccion2 {
+  margin: 1em;
+  padding: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  background: rgba(244, 252, 255, 0.20);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 252, 255, 0);
+}
+.seccion3{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-width: 805px;
+  background: rgba(244, 252, 255, 0.20);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 252, 255, 0);
+  margin-bottom: 1em;
 }
 .barra {
   width: 100%;
@@ -133,6 +156,32 @@ hgroup {
   display: flex;
   flex-direction: column;
 }
-.logout{  
-  margin-right: 1em;
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div h1{
+  text-align: center;
+  margin-bottom: 1em;
+}
+.botones{
+  display: flex;
+  justify-content: space-between;
+}
+header{
+  margin-bottom: 3em;
+}
+.prestamo{
+  margin-bottom: 1em;    
+}
+.titulo{
+  text-align: center;
+}
+.seccion h2{
+  text-align: center;
+  margin-bottom: 1.2em;
+}
+body h1{
+  text-align: center;
 }

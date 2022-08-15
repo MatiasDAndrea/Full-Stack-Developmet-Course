@@ -27,13 +27,16 @@
             <nav class="menu">
                 <ul class="nav text-small">
                   <li>
-                    <a href="" class="nav-link hov">Productos</a>
+                    <a href="" class="nav-link hov">Transferir</a>
                   </li>
                   <li>
-                    <a href="" class="nav-link hov">Opiniones</a>
+                    <a href="" class="nav-link hov">GoCripto</a>
                   </li>
                   <li>
-                    <a href="" class="nav-link hov">Conocenos</a>
+                    <a href="" class="nav-link hov">Sube</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'prestamos' %}" class="nav-link hov">Prestamos</a>
                   </li>
                 </ul>
               </nav>
@@ -43,130 +46,96 @@
             <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-primary border-2 rounded-circle"><i class="fa fa-sign-out"></i></button></a>
         </div>
     </header>
-    <h1>Bienvenido {{content.nombre}}</h1>
-    <div class="container d-flex  justify-content-center vh-100">
-        <div class="row">
-            <!-- Search Bar-->
-            <div class="col-12 d-none d-sm-block">
-                <nav class="navbar navbar-light">
-                    <div class="container-fluid align-items-center justify-content-center">
-                      <form class="d-flex w-75">
-                        <input class="form-control me-2 border-2 border-primary" type="search" placeholder="¿Que estas buscando?" aria-label="Search ">
-                        <button class="btn btn-outline-primary border-2" type="submit"><i class="fa fa-search"></i></button>
-                      </form>
-                    </div>
-                  </nav>
-            </div>
-
-            <!-- Account Selector-->
-            <div class="col-12 d-block d-sm-none">
-                <div class="card m-1">
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <select class="form-select form-select-m mb-0 btn btn-primary border-2" aria-label=".form-select-m example">
-                                <option selected>Seleccione su Cuenta</option>
-                                {% for accounts in content.cuentas %}
-                                
-                                    var += <option value="{{accounts.account_id}}">Cuenta: {{accounts.account_id}}</option>
-                                {% endfor %}
-                                var
-                            </select> 
+    <main>
+        <h1>Bienvenido {{content.nombre}}</h1>
+        <div class="col-12 d-none d-sm-block">
+            <nav class="navbar navbar-light">
+                <div class="container-fluid align-items-center justify-content-center">
+                  <form class="d-flex w-75">
+                    <input class="form-control me-2 border-2 border-primary" type="search" placeholder="¿Que estas buscando?" aria-label="Search ">
+                    <button class="btn btn-outline-primary border-2" type="submit"><i class="fa fa-search"></i></button>
+                  </form>
+                </div>
+              </nav>
+        </div>
+        <div class="seccion">
+                <div class="col-12 d-block d-sm-none">
+                    <div class="card m-1">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <select class="form-select form-select-m mb-0 btn btn-primary border-2" aria-label=".form-select-m example">
+                                    <option selected>Seleccione su Cuenta</option>
+                                    {% for accounts in content.cuentas %}
+                                    
+                                        var += <option value="{{accounts.account_id}}">Cuenta: {{accounts.account_id}}</option>
+                                    {% endfor %}
+                                    var
+                                </select> 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            
-            <!-- Buttons-->
-            <div class="col-12">
-                <div class="card m-1">
-                    <div class="card-body">
-                        <div class="d-flex bd-highlight justify-content-center">
-                            
-                            <div class="m-2">
-                                <button type="button" class="btn btn-primary border-2" >Transferir</button>
-                            </div>
-
-                            <div class="m-2">
-                                <button type="button" class="btn btn-primary border-2"><a style="text-decoration: none;color: white;" href="Sprint-3/goCripto.html">GoCripto</a></button>
-                            </div>
-
-                            <div class="m-2">
-                                <button type="button" class="btn btn-primary border-2">Sube</button>
-                            </div>
-
-                            <div class="m-2">
-                                <a href="{% url 'prestamos' %}"><button type="button" class="btn btn-primary border-2">Prestamos</button></a>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Account Cards-->
-            <div class="col-12 d-none d-sm-block">
-                <div id= "AccountCards" class="d-flex rounded justify-content-center border m-1">
+                <!-- Account Cards-->
+                <h1>Tarjetas</h1>
+                <div class="seccion3">
                     {% for cards in content.tarjetas %}
-                        <div class="card m-2 h-100">
-                            <div class="card-title border rounded border-primary border-2">
+                    <div class="seccion2">
+                        <div class="">
+                            <div class="">
                                 <h4>{{cards.ttarjetas.ttarjetas_marca}}</h4>
                                 <h5>{{cards.tarjeta_numero}}</h5>
                             </div>
-                            <div class="card body p-2 border-2 border-primary">
+                            <div class="">
                                 <ul>
                                     <li>Otorgamiento: {{cards.tarjeta_fecha_otorgamiento}}</li>
                                     <li>Expiracion: {{cards.tarjeta_fecha_expiracion}}</li>
                                     <li>CVV: {{cards.tarjeta_cvv}} </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div>                    
+                    </div>    
                     {% endfor %}
                 </div>
-                
                 <!-- Tipo de Cuentas para el usuario-->
-                <div class="col-12 d-none d-sm-block">
-                    <div id= "AccountCards" class="d-flex rounded justify-content-center border m-1">
-                        {% for cards in content.cuentas %}
-                        <div class="card m-2 h-100">
-                            <div class="card-title border rounded border-primary border-2">
+                <h1>Cuentas</h1>
+                <div class="seccion3">
+                    {% for cards in content.cuentas %}
+                    <div class="seccion2">
+                        <div class="">
+                            <div class="">
                                 <h4>{{cards.tcuenta_id.tcuenta_tipo}}</h4>
                                 <h5>Numero de Cuenta: {{cards.account_id}}</h5>
                             </div>
-                            <div class="card body p-2 border-2 border-primary">
+                            <div class="">
                                 <ul>
                                     <li>Balance: ${{cards.balance}}</li>
                                     <li>IBAN: {{cards.iban}}</li>
                                 </ul>
                             </div>
                         </div>
-                        {% endfor %}
                     </div>
+                    {% endfor %}
                 </div>  
+                <!-- Account Movements-->
+                <h1>Movimientos</h1>
+                <div class="seccion3">
+                    {% for gastos in content.movimientos %}
+                    <div class="seccion2">
+                        <a href="#" class="list-group-item list-group-item-action border-2 rounded border-primary">
+                        <div class="d-flex w-100 justify-content-between border-2">
+                            <h5 class="mb-1">{{gastos.tipo_operacion}}</h5>
+                            <small class="text-muted">{{gastos.hora}}</small>
+                        </div>
+                            <p class="mb-1">${{gastos.monto}}</p>
+                            <small class="text-muted">Verified</small>
+                        </a>
+                    </div> 
+                    {% endfor %}
+                </div>
             </div>
 
-            <!-- Account Movements-->
-            <div class="col-12 d-block d-sm-none">
-                <div class="card m-1">
-                    <div class="card-body">
-                        <div class="list-group">
-                            {% for gastos in content.movimientos %}
-                                <a href="#" class="list-group-item list-group-item-action border-2 rounded border-primary">
-                                <div class="d-flex w-100 justify-content-between border-2">
-                                    <h5 class="mb-1">{{gastos.tipo_operacion}}</h5>
-                                    <small class="text-muted">{{gastos.hora}}</small>
-                                </div>
-                                <p class="mb-1">${{gastos.monto}}</p>
-                                <small class="text-muted">Verified</small>
-                                </a>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div> 
-            </div>
-        </div>    
-    </div>
+
+    </main>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
       integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
