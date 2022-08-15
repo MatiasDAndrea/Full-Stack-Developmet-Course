@@ -49,13 +49,22 @@
                         {% endif %}
                         {{msg}}
                         <p>
-                          <label for="cars">Seleccione un Prestamo :</label>
-                          <select name="seleccion_prestamo" id="seleccion_prestamo">
-                            <option value=" "></option>
+                          <label for="prestamos"></label>
+                          <select name="seleccion_prestamo" id="seleccion_prestamo" class="form-control" required>
+                            <option value=" ">Seleccione el tipo de prestamo</option>
                             <option value="Hipotecario">Hipotecario</option>
                             <option value="Personal">Personal</option>
                             <option value="Prendario">Prendario</option>
                             
+                          </select>
+                          <label for="cuenta"></label>
+                          <select name="seleccion_cuenta" id="seleccion_prestamo" class="form-control">
+                            <option value=" ">Seleccione su Cuenta</option>
+                            {% for accounts in content.cuentas %}
+                                
+                            var += <option  required value="{{accounts.account_id}}">{{accounts.account_id}}</option>
+                            {% endfor %}
+                            var      
                           </select>
                         </p>
                         <p>
@@ -84,7 +93,7 @@
                 <th>Monto</th>
                 <th>Fecha de Inicio</th>
               </tr>
-              {% for prestamo in prestamos %}
+              {% for prestamo in content.prestamos %}
               <tr>
                 <td>{{prestamo.loan_type}}</td>
                 <td>${{prestamo.loan_total}}</td>
