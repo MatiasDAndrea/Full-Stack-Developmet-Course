@@ -39,3 +39,7 @@ class CuentasPackage:
             "movimientos":movimientos
         }
         return render(request,"Cuentas/cuenta.html",{'content':content})
+
+    @login_required
+    def gocripto_render(request):
+        return render(request,"Cuentas/goCripto.html")
