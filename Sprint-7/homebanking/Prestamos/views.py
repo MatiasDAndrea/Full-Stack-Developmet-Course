@@ -27,7 +27,7 @@ class PrestamoPackage:
     def log_page(request):
         
         user    = request.user
-        prestamos = Prestamo.objects.filter(customer_id = user.id)
+        prestamos = Prestamo.objects.filter(customer_id = user.id).order_by("-loan_date")
         cuenta = Cuenta.objects.filter(customer_id = user.id)
         content = {
             'prestamos':prestamos,
