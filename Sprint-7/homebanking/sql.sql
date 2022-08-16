@@ -66,3 +66,7 @@ VALUES
     ("GOLD",10000,1,1,0.5,"500000","TRUE","TRUE","TRUE",20000,300000),
     ("BLACK",10000,5,2,0,"INF","TRUE","TRUE","TRUE",100000,500000)
 ;
+
+UPDATE prestamo
+SET    loan_total = 3000
+WHERE  loan_id = 17;
