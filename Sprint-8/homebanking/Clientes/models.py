@@ -48,3 +48,27 @@ class Tipoclientes(models.Model):
     class Meta:
         managed = True
         db_table = 'TipoClientes'
+
+    
+class Sucursal(models.Model):
+    branch_id = models.AutoField(primary_key=True)
+    branch_number = models.BinaryField()
+    branch_name = models.TextField()
+    branch_address_id = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'sucursal'
+
+
+class Direcciones(models.Model):
+    direccion_id = models.AutoField(db_column='Direccion_id', primary_key=True)  # Field name made lowercase.
+    calle = models.TextField(db_column='Calle')  # Field name made lowercase.
+    numero = models.TextField(db_column='Numero')  # Field name made lowercase.
+    ciudad = models.TextField(db_column='Ciudad')  # Field name made lowercase.
+    provincia = models.TextField(db_column='Provincia')  # Field name made lowercase.
+    pais = models.TextField(db_column='Pais')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Direcciones'
