@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <script src="{% static 'Cuentas/js/goCripto.js'%}" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'Cuentas/css/goCripto.css'%}">
+    <title>CRPT0</title>
+</head>
+<body>
+    
+    <div class="container pb-2">
+        <div class="logo">
+            <img src="{% static 'Cuentas/img/goCripto.png'%}" alt="goCripto">
+        </div>
+        <!--Selector de cuenta (Cuenta1 / Cuenta2/ Cuenta3)-->
+        <div class="row">
+            <div class="col-12">
+                <select class="form-select" aria-label="Default select example" id="Cuentas" onchange="plotAccount()">
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <ul id="accountResume"></ul>
+            </div>
+        </div>
+
+        <!--precios de divisas-->
+        <div class="row m-2">
+            <div class="card">
+                <h5 class="card-title">Hot Criptos</h5>
+                <div class="card-body">
+                    <div id="precios" class="precios">
+                
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--precios de dolares-->
+        <div class="row m-2">
+            <div class="card">
+                <h5 class="card-title">Cotizacion Dolar</h5>
+                <div class="card-body">
+                <div class="precios" id="FirstRow">
+ 
+                </div>
+            </div>
+            </div>
+
+        </div>
+
+        <!--Conversion de monedas-->
+        <div class="row">
+            <div class="contenedor-conversor">                
+                <!--Moneda a ingresar-->
+                <div class="flex-fill border">
+                    <div class="conversor">
+                        <div class="cantidad">
+                            <label for="inputValue" class="form-label">Cantidad</label>
+                            <input id="inputValue" type="number" class="form-control" placeholder="Value" onchange="conversion()" min="0">
+                        </div>
+                        <div>
+                            <label for="inputCoin" class="form-label">Moneda</label>
+                            <select class="form-select" aria-label="Default select example" id="inputCoin" onchange="conversion()">
+
+                              </select>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Icono-->
+                <div id="flipCoin" class="flip">
+                    <button class="boton-conversor" type="button" onclick="flipCoins()">&#8646</button>
+                </div>
+
+                <!--Conversion-->
+                <div class="flex-fill border">
+                    <div class="conversor">
+                        <div class="cantidad">
+                            <label for="outputValue" class="form-label">Cantidad</label>
+                            <input id="outputValue" type="number" class="form-control" placeholder="Value" readonly>
+                        </div>
+
+                        <div>
+                            <label for="outputCoin" class="form-label">Moneda</label>
+                            <select class="form-select" aria-label="Default select example" id="outputCoin" onchange="conversion()">
+                                <option selected value=""></option>
+                                <option value="BTC">BTC</option>
+                                <option value="ETH">ETH</option>
+                                <option value="USDT">USDT</option>
+                                <option value="ARS">ARS</option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--Accion de compra-->
+        <div class="row">
+            <div class="comprar">
+                <button class="comprar-boton" type="button" onclick="buy()">Comprar</button>
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="div">
+                <text id="msg"></text>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
