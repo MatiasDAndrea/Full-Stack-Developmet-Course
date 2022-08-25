@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -11,6 +12,7 @@ class Cliente(models.Model):
     dob = models.TextField(blank=True, null=True)
     branch_id = models.IntegerField()
     id = models.IntegerField(db_column="TipoCliente")
+    owner = models.ForeignKey('auth.User',on_delete=models.CASCADE,default=1)
     
     class Meta:
         managed = True

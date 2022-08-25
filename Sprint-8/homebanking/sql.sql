@@ -67,6 +67,6 @@ VALUES
     ("BLACK",10000,5,2,0,"INF","TRUE","TRUE","TRUE",100000,500000)
 ;
 
-UPDATE prestamo
-SET    loan_total = 3000
-WHERE  loan_id = 17;
+UPDATE cliente
+SET    owner_id = 3
+WHERE  customer_id = 3;
