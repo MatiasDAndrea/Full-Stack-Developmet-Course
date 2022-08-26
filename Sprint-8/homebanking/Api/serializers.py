@@ -1,3 +1,5 @@
+from dataclasses import field
+from imp import source_from_cache
 from rest_framework import serializers
 from Clientes.models  import *
 from Cuentas.models   import *
@@ -16,21 +18,29 @@ class ClienteSerializer(serializers.ModelSerializer):
             'branch_id'
         ]
 
-    #def to_representation(self, instance):
-
-        #dictionary_object = super().to_representation(instance)
         
-
-
-
 class CuentaSerializer(serializers.ModelSerializer):
-    pass
+    
+    tcuenta_id = serializers.ReadOnlyField(source = 'tcuenta_id.tcuenta_tipo')
+    class Meta:
+        model = Cuenta
+        fields = [
+            'account_id',
+            'balance',
+            'tcuenta_id'
+        ]
+
+
 
 class TarjetaSerializer(serializers.ModelSerializer):
     pass
 
 class PrestamoSerializer(serializers.ModelSerializer):
-    pass
-
-class CuentaSerializer(serializers.ModelSerializer):
-    pass
+    
+    class Meta:
+        model = Prestamo
+        fields = [
+            'loan_id',
+            'loan_type',
+            'loan_total'
+        ]

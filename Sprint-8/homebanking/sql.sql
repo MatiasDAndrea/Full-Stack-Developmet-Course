@@ -70,3 +70,6 @@ VALUES
 UPDATE cliente
 SET    owner_id = 3
 WHERE  customer_id = 3;
+
+
+select * from auth_user;
