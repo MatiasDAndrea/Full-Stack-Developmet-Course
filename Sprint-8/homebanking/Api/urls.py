@@ -4,6 +4,7 @@ from . import views
 router = routers.SimpleRouter()
 router.register('Cliente',views.ClienteView,basename="Cliente")
 router.register('Cuentas',views.CuentaView,basename="Cuenta")
-router.register('Prestamos',views.PrestamosView,basename="Cuenta")
+router.register('Prestamos',views.PrestamosView,basename="Prestamos")
+router.register('Tarjetas',views.TarjetasView,basename="Tarjetas")
 
 urlpatterns = router.urls

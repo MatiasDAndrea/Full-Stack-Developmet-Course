@@ -4,6 +4,8 @@ from Cuentas.models   import *
 from Tarjetas.models  import *
 from Prestamos.models import *
 
+
+
 class ClienteSerializer(serializers.ModelSerializer):
     
     class Meta:
@@ -16,7 +18,8 @@ class ClienteSerializer(serializers.ModelSerializer):
             'branch_id'
         ]
 
-        
+
+
 class CuentaSerializer(serializers.ModelSerializer):
     
     tcuenta_id = serializers.ReadOnlyField(source = 'tcuenta_id.tcuenta_tipo')
@@ -31,7 +34,20 @@ class CuentaSerializer(serializers.ModelSerializer):
 
 
 class TarjetaSerializer(serializers.ModelSerializer):
-    pass
+    
+    ttarjetas = serializers.ReadOnlyField(source = 'ttarjetas.ttarjetas_marca')
+    class Meta:
+        model = Tarjetas
+        fields = [
+            'tarjeta_numero',
+            'tarjeta_cvv',
+            'tarjeta_fecha_otorgamiento',
+            'tarjeta_fecha_expiracion',
+            'tarjeta_tipo',
+            'tarjeta_tipo',
+            'ttarjetas'
+        ]
+
 
 class PrestamoSerializer(serializers.ModelSerializer):
     

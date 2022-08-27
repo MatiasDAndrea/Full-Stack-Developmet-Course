@@ -76,3 +76,11 @@ class PrestamosView(viewsets.ModelViewSet):
                 return Prestamo.objects.all()
         
 
+
+class TarjetasView(viewsets.ModelViewSet):
+
+    serializer_class = TarjetaSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def get_queryset(self):
+        return Tarjetas.objects.all()
