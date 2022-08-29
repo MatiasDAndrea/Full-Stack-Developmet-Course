@@ -72,4 +72,39 @@ SET    owner_id = 3
 WHERE  customer_id = 3;
 
 
+update sucursales
+set branch_address_id = 3
+where branch_id = 3
+
+INSERT INTO sucursales (
+    branch_number,
+    branch_name,
+    branch_address_id
+)
+VALUES 
+    (1051,"City Bank",1),
+    (1000,"Fundation Bank",2),
+    (2000,"City Stonks",2)
+
+;
+
+INSERT INTO Clientes_direccionclientes (
+    calle,
+    Numero,
+    Ciudad,
+    Provincia,
+    Pais
+)
+VALUES 
+    ("Villa Rosa","500","Buenos Aires","Buenos Aires","Argentina"),
+    ("San Martin","1545","Buenos Aires","Buenos Aires","Argentina"),
+    ("Malaver","308","Buenos Aires","Buenos Aires","Argentina")
+
+;
+
 select * from auth_user;
+
+
+update Clientes_direccionclientes
+set customer_id = 3
+where Direccion_id = 3;
