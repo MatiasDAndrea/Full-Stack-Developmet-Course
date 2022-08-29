@@ -58,3 +58,44 @@ class PrestamoSerializer(serializers.ModelSerializer):
             'loan_type',
             'loan_total'
         ]
+
+
+class PrestamoSerializerEmpleado(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Prestamo
+        fields = [
+            'loan_type',
+            'loan_date',
+            'loan_total',
+            'customer_id',
+            'account_num'
+        ]
+
+
+class DireccionSerializerEmpleado(serializers.ModelSerializer):
+
+    class Meta:
+        model = DireccionClientes
+        fields = [
+            "calle",
+            "numero",
+            "ciudad",
+            "provincia",
+            "pais",
+            "customer_id"
+        ]
+
+
+class DireccionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = DireccionClientes
+        fields = [
+            "calle",
+            "numero",
+            "ciudad",
+            "provincia",
+            "pais"
+        ]
+
