@@ -231,7 +231,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/Tarjetas/API_Tarjetas/?Cliente=2",
+					"raw": "http://localhost:8000/Tarjetas/API_Tarjetas/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -245,7 +245,8 @@
 					"query": [
 						{
 							"key": "Cliente",
-							"value": "2"
+							"value": "2",
+							"disabled": true
 						}
 					]
 				}
@@ -434,6 +435,9 @@
 		},
 		{
 			"name": "9-LISTADO DE TODAS LAS SUCURSALES",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -450,7 +454,7 @@
 						}
 					]
 				},
-				"method": "PUT",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -462,7 +466,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/Clientes/API_Direcciones/",
+					"raw": "http://localhost:8000/Clientes/API_Sucursales/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -470,7 +474,7 @@
 					"port": "8000",
 					"path": [
 						"Clientes",
-						"API_Direcciones",
+						"API_Sucursales",
 						""
 					]
 				}
