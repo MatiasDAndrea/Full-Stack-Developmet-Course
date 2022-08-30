@@ -1,0 +1,481 @@
+{
+	"info": {
+		"_postman_id": "3c8cad33-043c-4389-848b-d7d47832860a",
+		"name": "Sprint-8",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23001179"
+	},
+	"item": [
+		{
+			"name": "1-OBTENER DATOS DE UN CLIENTE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Matias",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "holachau123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"calle\": \"Villa Adelina\",\r\n        \"numero\": \"500\",\r\n        \"ciudad\": \"Buenos Aires\",\r\n        \"provincia\": \"Buenos Aires\",\r\n        \"pais\": \"Argentina\"\r\n    }\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/Clientes/API_Cliente/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"Clientes",
+						"API_Cliente",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2-OBTENER SALDO DE CUENTA DE UN CLIENTE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Matias",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "holachau123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"calle\": \"Villa Rosaaaaa\",\r\n        \"numero\": \"500\",\r\n        \"ciudad\": \"Buenos Aires\",\r\n        \"provincia\": \"Buenos Aires\",\r\n        \"pais\": \"Argentina\",\r\n        \"customer_id\": 1\r\n    }\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/Cuentas/API_Cuenta/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"Cuentas",
+						"API_Cuenta",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3-OBTENER MONTO DE PRESTAMOS DE UN CLIENTE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Matias",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "holachau123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"calle\": \"Villa Rosaaaaa\",\r\n        \"numero\": \"500\",\r\n        \"ciudad\": \"Buenos Aires\",\r\n        \"provincia\": \"Buenos Aires\",\r\n        \"pais\": \"Argentina\",\r\n        \"customer_id\": 1\r\n    }\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/Cuentas/API_Prestamos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"Cuentas",
+						"API_Prestamos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4-OBTENER MONTO DE PRESTAMOS DE UNA SUCURSAL",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Matias",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "holachau123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"calle\": \"Villa Rosaaaaa\",\r\n        \"numero\": \"500\",\r\n        \"ciudad\": \"Buenos Aires\",\r\n        \"provincia\": \"Buenos Aires\",\r\n        \"pais\": \"Argentina\",\r\n        \"customer_id\": 1\r\n    }\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/Cuentas/API_Cuenta/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"Cuentas",
+						"API_Cuenta",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5-OBTENER TARJETAS ASOCIADAS A UN CLIENTE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Empleado1",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "holachau123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"calle\": \"Villa Rosaaaaa\",\r\n        \"numero\": \"500\",\r\n        \"ciudad\": \"Buenos Aires\",\r\n        \"provincia\": \"Buenos Aires\",\r\n        \"pais\": \"Argentina\",\r\n        \"customer_id\": 1\r\n    }\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/Tarjetas/API_Tarjetas/?Cliente=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"Tarjetas",
+						"API_Tarjetas",
+						""
+					],
+					"query": [
+						{
+							"key": "Cliente",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6-GENERAR UNA SOLICITUD DE PRESTAMO PARA UN CLIENTE",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Empleado1",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "holachau123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"loan_type\": \"Hipotecario\",\r\n        \"loan_date\": \"2022-08-29\",\r\n        \"loan_total\": 3000,\r\n        \"customer_id\": 1,\r\n        \"account_num\": 1\r\n    }\r\n    \r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/Cuentas/API_PrestamosAdmin/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"Cuentas",
+						"API_PrestamosAdmin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7-ANULAR SOLICITUD DE PRESTAMO DE CLIENTE",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Empleado1",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "holachau123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"loan_type\": \"Hipotecario\",\r\n        \"loan_date\": \"2022-08-29\",\r\n        \"loan_total\": 3000,\r\n        \"customer_id\": 1,\r\n        \"account_num\": 1\r\n    }\r\n    \r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/Cuentas/API_PrestamosAdmin/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"Cuentas",
+						"API_PrestamosAdmin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8-MODIFICAR DIRECCION DE UN CLIENTE/ Vista Cliente",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Matias",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "holachau123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"calle\": \"Villa Adelina\",\r\n        \"numero\": \"500\",\r\n        \"ciudad\": \"Buenos Aires\",\r\n        \"provincia\": \"Buenos Aires\",\r\n        \"pais\": \"Argentina\"\r\n    }\r\n    \r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/Clientes/API_Direcciones/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"Clientes",
+						"API_Direcciones",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8-MODIFICAR DIRECCION DE UN CLIENTE/ Vista Empleado",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Empleado1",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "holachau123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"calle\": \"Villa Rosa\",\r\n        \"numero\": \"500\",\r\n        \"ciudad\": \"Buenos Aires\",\r\n        \"provincia\": \"Buenos Aires\",\r\n        \"pais\": \"Argentina\",\r\n        \"customer_id\": 1\r\n    }\r\n    \r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/Clientes/API_Direcciones/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"Clientes",
+						"API_Direcciones",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9-LISTADO DE TODAS LAS SUCURSALES",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "Empleado1",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "holachau123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"calle\": \"Villa Rosa\",\r\n        \"numero\": \"500\",\r\n        \"ciudad\": \"Buenos Aires\",\r\n        \"provincia\": \"Buenos Aires\",\r\n        \"pais\": \"Argentina\",\r\n        \"customer_id\": 1\r\n    }\r\n    \r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/Clientes/API_Direcciones/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"Clientes",
+						"API_Direcciones",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
