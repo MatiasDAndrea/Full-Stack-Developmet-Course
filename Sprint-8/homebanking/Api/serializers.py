@@ -1,3 +1,11 @@
+################################################
+#
+#   Modulo que contiene todos los serializer
+#       utilizados para la creacion de la API.
+#
+################################################
+
+
 from rest_framework import serializers
 from Clientes.models  import *
 from Cuentas.models   import *
@@ -49,14 +57,14 @@ class TarjetaSerializer(serializers.ModelSerializer):
         ]
 
 
-class PrestamoSerializer(serializers.ModelSerializer):
+class PrestamoClienteSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Prestamo
         fields = [
-            'loan_id',
             'loan_type',
-            'loan_total'
+            'loan_total',
+            'loan_date'
         ]
 
 
@@ -99,3 +107,39 @@ class DireccionSerializer(serializers.ModelSerializer):
             "pais"
         ]
 
+
+class DireccionSucursalSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Direccion
+        fields = [
+            "calle",
+            "numero",
+            "ciudad",
+            "provincia",
+            "pais"
+        ]
+
+
+class SucursalSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Sucursales
+        fields = [
+            'branch_id',
+            'branch_number',
+            'branch_name',
+            'branch_address_id'
+        ]
+
+    def to_representation(self, instance):
+        ev = super().to_representation(instance)
+        
+        for key,value in ev.items():
+            
+            if key == "branch_address_id":
+                
+                val = Sucursales.objects.get(branch_address_id = value).branch_address_id
+                ev[key] = DireccionSucursalSerializer(val).data
+
+        return ev
