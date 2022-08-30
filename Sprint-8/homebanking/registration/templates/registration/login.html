@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link link rel="stylesheet" type="text/css" href="~/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="{% static 'registration/css/login.css' %}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Ingresar</title>
+</head>
+  <body class="form">
+  <header class="encabezado">
+    <div class="logo">
+      <a href="{% url 'home' %}"><img class="img-logo" src="{% static 'Cuentas/img/Logo.png' %}" alt="ITBANK" /></a>
+    </div>
+  </header>
+  <main>
+      <div class="titulo">
+          <h2>Bienvenidos al banco del futuro</h2>
+      </div>
+      <div class="seccion">
+          <h2>
+            Ingresa tus datos
+          </h2>
+        <div class="row mt-3">
+          <div class="col-md-9 mx-auto mb-5">
+            <form action="" method="post">{% csrf_token %}
+              <h3 class="mb-4">Iniciar sesión</h3>
+              {% if form.non_field_errors %}
+              <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+              {% endif %}
+              <p>
+                <input type="text" name="username" autofocus maxlength="254" required id="id_username" class="form-control" placeholder="Nombre de usuario"/>
+              </p>
+              <p>
+                <input type="password" name="password" required id="id_password" class="form-control" placeholder="Contraseña"/>
+              </p>
+              <p>
+                <input type="submit" class="btn btn-dark btn-block" value="Acceder">
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+  </main>
+  </body>
+</html>

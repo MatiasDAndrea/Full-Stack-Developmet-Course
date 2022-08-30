@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Préstamos</title>
+    <link href='https://css.gg/bell.css' rel='stylesheet'>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+    crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&display=swap" rel="stylesheet">     <title>ITBANK</title>
+    <link rel="stylesheet" href="{% static 'Prestamos/css/Prestamos.css' %}">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="logo">
+          <a href="{% url 'cuenta' %}"><img class="img-logo" src="{% static 'Prestamos/img/Logo.png' %}" alt="ITBANK" /></a>
+        </div>
+        <div>
+          <a href="{% url 'logout' %}"><button type="button" class="btn btn-dark border-2 rounded-circle"><i class="fa fa-sign-out"></i></button></a>
+        </div>
+    </header>
+      <main>
+            <div class="seccion">
+              
+              <main role="main">
+                <div class="container">
+                  <div class="row mt-3">
+                    <div class="col-md-9 mx-auto mb-5">
+                      <form action="Prestamos/Mensaje/" method="post" id="carform">{% csrf_token %}
+                        <h3 class="mb-4">Solicitud de Prestamo</h3>
+                        {{msg}}
+                        <p>
+                          <label for="prestamos"></label>
+                          <select name="seleccion_prestamo" id="seleccion_prestamo" class="form-control" required>
+                            <option value=" ">Seleccione el tipo de prestamo</option>
+                            <option value="Hipotecario">Hipotecario</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Prendario">Prendario</option>
+                            
+                          </select>
+                          <label for="cuenta"></label>
+                          <select name="seleccion_cuenta" id="seleccion_prestamo" class="form-control">
+                            <option value=" ">Seleccione su Cuenta</option>
+                            {% for accounts in content.cuentas %}
+                                
+                            var += <option  required value="{{accounts.account_id}}">{{accounts.account_id}}</option>
+                            {% endfor %}
+                            var      
+                          </select>
+                        </p>
+                        <p>
+                          <input type="number" name="Monto" required
+                            id="id_monto" class="form-control" placeholder="Monto"/>
+                        </p>
+                        <p>
+                          <input type="date" name="Fecha" required
+                            id="Fecha" class="form-control" placeholder="Fecha de Inicio"/>
+                        </p>
+                        <p><input type="submit" class="btn btn-dark btn-block" value="Conceder Prestamo"></p>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </main>
+            </div>
+
+            <div class="seccion">
+            <h2>Prestamos Conferidos</h2>
+            <table class="table table-bordered">
+              <tr>
+                <th>Tipo de Prestamo</th>
+                <th>Monto</th>
+                <th>Fecha de Inicio</th>
+              </tr>
+              {% for prestamo in content.prestamos %}
+              <tr>
+                <td>{{prestamo.loan_type}}</td>
+                <td>${{prestamo.loan_total}}</td>
+                <td>{{prestamo.loan_date}}</td>
+              </tr>
+              {% endfor %}
+            </table>
+      </main>
+</body>
+</html>
